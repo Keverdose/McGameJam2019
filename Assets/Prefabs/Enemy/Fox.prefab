@@ -14,9 +14,13 @@ GameObject:
   - component: {fileID: 532976930}
   - component: {fileID: 532976931}
   - component: {fileID: 532976929}
+  - component: {fileID: 4013530153200710750}
+  - component: {fileID: 3526801482653654158}
+  - component: {fileID: 532976926}
+  - component: {fileID: 2203710021538958110}
   m_Layer: 0
   m_Name: Fox
-  m_TagString: Untagged
+  m_TagString: fox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +235,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7599167558456702370}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea571e7bb35edc14dafe92908d4d54b2, type: 3}
   m_Name: 
@@ -244,4 +248,189 @@ MonoBehaviour:
   huntingTimer: 0
   target: {fileID: 0}
   sound: {fileID: 532976931}
+  soundHasPlayed: 0
+--- !u!61 &4013530153200710750
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599167558456702370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.25, y: 0.25}
+    newSize: {x: 0.25, y: 0.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25}
+  m_EdgeRadius: 0
+--- !u!82 &3526801482653654158
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599167558456702370}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eb1602ed77abe374a9eab968e10d9d2b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.4
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &532976926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599167558456702370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c42c15e155a6734998b31d744036cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxHunting: 0
+  foxMapSize: {x: 1.5, y: 0.75}
+  foxTargetLoc: {x: 0, y: 0, z: 0}
+  foxSpeed: 0.5
+  foxHuntingTime: 10
+  foxHuntingTimer: 0
+  foxTarget: {fileID: 0}
+  foxSound: {fileID: 3526801482653654158}
+  foxSoundHasPlayed: 0
+  chupacabraMapSize: 2
+  chupacabraSpeed: 2
+  chupacabraTarget: {fileID: 0}
+  chupacabraHunting: 0
+  chupacabraHuntingTime: 15
+  chupacabraHuntingTimer: 0
+  chupacabraOriginalLocation: {x: 0, y: 0, z: 0}
+  chupacabraHasRespawned: 0
+  chupacabraSound: {fileID: 0}
+  chupacabraSoundHasPlayed: 0
+  ufoHunting: 0
+  ufoTarget: {fileID: 0}
+  ufoTargetLocation: {x: 0, y: 0, z: 0}
+  ufoOriginalTargetLocation: {x: 0, y: 0, z: 0}
+  ufoSpeed: 0.75
+  ufoHeight: 0.4
+  ufoOriginalLocation: {x: 0, y: 0, z: 0}
+  ufoTime: 15
+  ufoTimer: 0
+  ufoSound: {fileID: 0}
+  ufoSoundHasPlayed: 0
+--- !u!114 &2203710021538958110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599167558456702370}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea571e7bb35edc14dafe92908d4d54b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hunting: 0
+  mapSize: {x: 1.5, y: 0.75}
+  targetLoc: {x: 0, y: 0, z: 0}
+  speed: 0.5
+  huntingTime: 5
+  huntingTimer: 0
+  target: {fileID: 0}
+  sound: {fileID: 3526801482653654158}
   soundHasPlayed: 0

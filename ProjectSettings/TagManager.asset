@@ -8,6 +8,9 @@ TagManager:
   - Chicken
   - Cow
   - Goat
+  - fox
+  - chupacabra
+  - ufo
   layers:
   - Default
   - TransparentFX

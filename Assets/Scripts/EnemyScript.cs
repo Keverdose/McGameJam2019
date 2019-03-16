@@ -39,34 +39,59 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foxSoundHasPlayed = false;
-        foxHuntingTimer = 0.0f;
-        foxHunting = false;
-        transform.position = new Vector3(foxMapSize.x, foxMapSize.y, 0.0f);
-        foxTargetLoc = new Vector2(foxMapSize.x, -foxMapSize.y);
-
-        chupacabraSoundHasPlayed = false;
-        chupacabraHasRespawned = true;
-        chupacabraHunting = false;
-        chupacabraHuntingTimer = 0.0f;
-        chupacabraOriginalLocation = transform.position;
-        chupacabraRespawn();
-
-        ufoSoundHasPlayed = false;
-        ufoHunting = true;
-        ufoTimer = 0.0f;
-        ufoOriginalLocation = transform.position;
-        ufoOriginalTargetLocation = ufoTarget.transform.position;
-        ufoTargetLocation = ufoTarget.transform.position;
-        ufoTargetLocation.y += ufoHeight;
+        if(gameObject.CompareTag("fox"))
+        {
+            foxSoundHasPlayed = false;
+            foxHuntingTimer = 0.0f;
+            foxHunting = false;
+            transform.position = new Vector3(foxMapSize.x, foxMapSize.y, 0.0f);
+            foxTargetLoc = new Vector2(foxMapSize.x, -foxMapSize.y);
+        }
+        
+        else if (gameObject.CompareTag("chupacabra"))
+        {
+            chupacabraSoundHasPlayed = false;
+            chupacabraHasRespawned = true;
+            chupacabraHunting = false;
+            chupacabraHuntingTimer = 0.0f;
+            chupacabraOriginalLocation = transform.position;
+            chupacabraRespawn();
+        }
+        
+        else if (gameObject.CompareTag("ufo"))
+        {
+            ufoSoundHasPlayed = false;
+            ufoHunting = false;
+            ufoTimer = 0.0f;
+            ufoOriginalLocation = transform.position;
+            ufoOriginalTargetLocation = ufoTarget.transform.position;
+            ufoTargetLocation = ufoTarget.transform.position;
+            ufoTargetLocation.y += ufoHeight;
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        ufoDo();
-        foxDo();
-        chupacabraDo();
+        switch(tag)
+        {
+            case "ufo":
+                ufoDo();
+                break;
+            case "fox":
+                foxDo();
+                break;
+            case "chupacabra":
+                chupacabraDo();
+                break;
+            default:
+                foxDo();
+                break;
+        }
+
+
+        
     }
 
     public void ufoDo()
@@ -232,7 +257,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(this.gameObject.CompareTag("Chupacabra"))
+        if(this.gameObject.CompareTag("chupacabra"))
         {
             if (collision.gameObject.CompareTag("Player"))
             {
@@ -242,7 +267,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHasRespawned = false;
             }
         }
-        if(this.gameObject.CompareTag("Fox"))
+        if(this.gameObject.CompareTag("fox"))
         {
             if (collision.gameObject.CompareTag("Player"))
             {

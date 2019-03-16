@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2302616554355018118}
   - component: {fileID: 1514400534}
   - component: {fileID: 1514400533}
+  - component: {fileID: 1319238465}
   m_Layer: 0
   m_Name: UFO
-  m_TagString: Untagged
+  m_TagString: ufo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +205,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2302616554355018119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4441b30bbe453b244b8ece865654cf57, type: 3}
   m_Name: 
@@ -220,3 +221,45 @@ MonoBehaviour:
   ufoTimer: 0
   ufoSound: {fileID: 1514400534}
   soundHasPlayed: 0
+--- !u!114 &1319238465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2302616554355018119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c42c15e155a6734998b31d744036cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foxHunting: 0
+  foxMapSize: {x: 2, y: 1}
+  foxTargetLoc: {x: 0, y: 0, z: 0}
+  foxSpeed: 0.5
+  foxHuntingTime: 10
+  foxHuntingTimer: 0
+  foxTarget: {fileID: 0}
+  foxSound: {fileID: 0}
+  foxSoundHasPlayed: 0
+  chupacabraMapSize: 2
+  chupacabraSpeed: 2
+  chupacabraTarget: {fileID: 0}
+  chupacabraHunting: 0
+  chupacabraHuntingTime: 15
+  chupacabraHuntingTimer: 0
+  chupacabraOriginalLocation: {x: 0, y: 0, z: 0}
+  chupacabraHasRespawned: 0
+  chupacabraSound: {fileID: 0}
+  chupacabraSoundHasPlayed: 0
+  ufoHunting: 0
+  ufoTarget: {fileID: 0}
+  ufoTargetLocation: {x: 0, y: 0, z: 0}
+  ufoOriginalTargetLocation: {x: 0, y: 0, z: 0}
+  ufoSpeed: 0.75
+  ufoHeight: 0.4
+  ufoOriginalLocation: {x: 0, y: 0, z: 0}
+  ufoTime: 15
+  ufoTimer: 0
+  ufoSound: {fileID: 1514400534}
+  ufoSoundHasPlayed: 0
