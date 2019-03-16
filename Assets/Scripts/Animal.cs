@@ -9,6 +9,7 @@ public class Animal : MonoBehaviour
 
     // Enum of possible Animal State
     public enum AnimalStates { readyToHarvest, hungry, thirsty, needHelp, respawning, neutral };
+    public enum HarvestProduct { Milk, Egg, Cheese };
 
     // List of Animal State GameObject Sprites
     public List<GameObject> animalStateSprites;
@@ -78,6 +79,22 @@ public class Animal : MonoBehaviour
     }
 
 
+    // Returns an Integer of the harvested product
+    public int getHarvestedProduct() {
+        if (this.gameObject.tag == "Cow")
+            return 0;
+        if (this.gameObject.tag == "Chicken")
+            return 1;
+        if (this.gameObject.tag == "Goat")
+            return 2;
+
+        // Returns NONE_ITEM
+        print("NOTHTING RETURNED FROM REQUEST");
+
+        return 3;
+    }
+
+
     // Changes Current State to new defined State
     private void changeState(AnimalStates newState) {
         if(state != newState) {
@@ -94,7 +111,6 @@ public class Animal : MonoBehaviour
     private void disableStateSprite() {
         for(int i = 0; i < animalStateSprites.Count; i++) {
             animalStateSprites[i].SetActive(false);
-            print("Disabling");
         }
     }
 
@@ -126,7 +142,7 @@ public class Animal : MonoBehaviour
     public void attacked() {
         state = AnimalStates.needHelp;
         pastAnimalState = state;
-        animalStateSprites[(int)state].GetComponent<GameObject>().SetActive(true);
+        animalStateSprites[(int)state].SetActive(true);
     }
 
     public void respawnAnimal() {

@@ -255,7 +255,7 @@ PrefabInstance:
     - target: {fileID: 4979177035467965329, guid: 0790ea734d3de4e2cb260700c3e6fa89,
         type: 3}
       propertyPath: m_TagString
-      value: Animal
+      value: Cow
       objectReference: {fileID: 0}
     - target: {fileID: 4979177035467965343, guid: 0790ea734d3de4e2cb260700c3e6fa89,
         type: 3}
@@ -357,6 +357,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 320762797413600591, guid: 0790ea734d3de4e2cb260700c3e6fa89,
     type: 3}
   m_PrefabInstance: {fileID: 229012555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &301060172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7676134401892824577, guid: 66fb1d2f08af94e08963bd6769835ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 441995327671680529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &482646615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 629583990826083676, guid: 66fb1d2f08af94e08963bd6769835ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 441995327671680529}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
@@ -595,10 +607,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658ebfc0584a93d49a7dcb827199faf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedUpItemList:
+  - {fileID: 1930488163}
+  - {fileID: 301060172}
+  - {fileID: 482646615}
   maxFoodFeedingTime: 1
   maxWaterFeedingTime: 1
   maxHarvestTime: 1
   timer: 0
+  itemIndex: 0
 --- !u!50 &691621484
 Rigidbody2D:
   serializedVersion: 4
@@ -635,7 +652,7 @@ PrefabInstance:
     - target: {fileID: 8749957538123004742, guid: eb78829f525124cfb8365bc79ac22a0e,
         type: 3}
       propertyPath: m_TagString
-      value: Animal
+      value: Chicken
       objectReference: {fileID: 0}
     - target: {fileID: 8749957538123004736, guid: eb78829f525124cfb8365bc79ac22a0e,
         type: 3}
@@ -871,7 +888,7 @@ PrefabInstance:
     - target: {fileID: 6099210831074325105, guid: 61a181c97d99742d996806f0d9d530ce,
         type: 3}
       propertyPath: m_TagString
-      value: Animal
+      value: Goat
       objectReference: {fileID: 0}
     - target: {fileID: 6099210831074327951, guid: 61a181c97d99742d996806f0d9d530ce,
         type: 3}
@@ -984,6 +1001,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1500604831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1930488163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5473042809047268948, guid: 66fb1d2f08af94e08963bd6769835ce4,
+    type: 3}
+  m_PrefabInstance: {fileID: 441995327671680529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &441995327671680529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1050,6 +1073,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4274976261202904027, guid: 66fb1d2f08af94e08963bd6769835ce4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676134401892824582, guid: 66fb1d2f08af94e08963bd6769835ce4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 629583990826083679, guid: 66fb1d2f08af94e08963bd6769835ce4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
