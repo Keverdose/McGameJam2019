@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// [RequireComponent(typeof(Collider2D))]
+
 public class Animal : MonoBehaviour
 {
 
@@ -24,6 +26,7 @@ public class Animal : MonoBehaviour
     public float harvestTimer;
     public float respawnTimer;
 
+    // BoxCollider2D collider;
 
 
     // Start Function
@@ -82,7 +85,7 @@ public class Animal : MonoBehaviour
 
 
     // Feeds Animal Funtion
-    public void feedAnimal() {
+    public void feedFood() {
         hungryTimer = 0.0f;
         changeState(AnimalStates.neutral); 
         // Disable Animal Hungry Animation/Sprite
