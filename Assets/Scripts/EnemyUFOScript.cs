@@ -14,9 +14,12 @@ public class EnemyUFOScript : MonoBehaviour
     public Vector3 ufoOriginalLocation;
     public float ufoTime = 15.0f;
     public float ufoTimer;
+    public AudioSource ufoSound;
+    public bool soundHasPlayed;
     // Start is called before the first frame update
     void Start()
     {
+        soundHasPlayed = false;
         hunting = true;
         ufoTimer = 0.0f;
         ufoOriginalLocation = transform.position;
@@ -35,9 +38,16 @@ public class EnemyUFOScript : MonoBehaviour
         }
         if(hunting)
         {
+            if(!soundHasPlayed)
+            {
+                ufoSound.Play();
+                soundHasPlayed = true;
+            }
+            
             transform.position = Vector2.MoveTowards(transform.position, targetLocation, ufoSpeed * Time.deltaTime);
             if(transform.position == targetLocation)
             {
+                
                 if (Input.GetKey("space"))
                 {
                     target.transform.position = Vector2.MoveTowards(target.transform.position, originalTargetLocation, 0.1f * Time.deltaTime);
@@ -50,6 +60,7 @@ public class EnemyUFOScript : MonoBehaviour
                 {
                     ufoTimer = 0.0f;
                     hunting = false;
+                    soundHasPlayed = false;
                 }
             }
         }
