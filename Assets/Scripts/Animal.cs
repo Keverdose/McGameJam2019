@@ -8,7 +8,10 @@ public class Animal : MonoBehaviour
 {
 
     // Enum of possible Animal State
-    public enum AnimalStates { neutral, hungry, thirsty, readyToHarvest, needHelp, respawning };
+    public enum AnimalStates { readyToHarvest, hungry, thirsty, needHelp, respawning, neutral };
+
+    // List of Animal State GameObject Sprites
+    public List<GameObject> animalStateSprites;
 
     // Current Animal State
     public AnimalStates state;
@@ -35,6 +38,9 @@ public class Animal : MonoBehaviour
         thirstyTimer = 0;
         harvestTimer = 0;
         respawnTimer = 0;
+
+        state = AnimalStates.neutral;
+        pastAnimalState = AnimalStates.neutral;
     }
 
     // Update Function
@@ -55,22 +61,18 @@ public class Animal : MonoBehaviour
 
         if (state == AnimalStates.neutral && hungryTimer >= maxHungryTimer) {
             changeState(AnimalStates.hungry);
-            // Enable Hungry Sprite/Animation
         }
 
         if (state == AnimalStates.neutral && thirstyTimer >= maxThirstyTimer) {
             changeState(AnimalStates.thirsty);
-            // Enable Thirsty Sprite/Animation
         }
 
         if (state == AnimalStates.neutral && harvestTimer >= maxHarvestTimer) {
             changeState(AnimalStates.readyToHarvest);
-            // Enable Ready to Harest Sprite/Animation
         }
 
         if (state == AnimalStates.respawning && respawnTimer >= maxRespawnTimer) {
             changeState(AnimalStates.neutral);
-            // Enable GameObject and Sprite/Animation
         }
 
     }
@@ -80,6 +82,19 @@ public class Animal : MonoBehaviour
     private void changeState(AnimalStates newState) {
         if(state != newState) {
             state = newState;
+
+            // Only change the Sprite if it is ReadyToHarvest, Hungry, Thirsty, or NeedHelp
+            if ((int)state >= 0 && (int)state < animalStateSprites.Count) {
+                animalStateSprites[(int)state].SetActive(true);
+            }
+        }
+    }
+
+    // Disables all State Sprites
+    private void disableStateSprite() {
+        for(int i = 0; i < animalStateSprites.Count; i++) {
+            animalStateSprites[i].SetActive(false);
+            print("Disabling");
         }
     }
 
@@ -87,15 +102,15 @@ public class Animal : MonoBehaviour
     // Feeds Animal Funtion
     public void feedFood() {
         hungryTimer = 0.0f;
-        changeState(AnimalStates.neutral); 
-        // Disable Animal Hungry Animation/Sprite
+        changeState(AnimalStates.neutral);
+        disableStateSprite(); 
     }
 
     // Feed Animal Water 
     public void feedWater() {
         thirstyTimer = 0.0f;
         changeState(AnimalStates.neutral);
-        // Disable Animal Thirsty Animation/Sprite
+        disableStateSprite();
     }
 
 
@@ -103,7 +118,7 @@ public class Animal : MonoBehaviour
     public void harvestAnimal() {
         harvestTimer = 0.0f;
         changeState(AnimalStates.neutral);
-        // Disable Animal Harvest Animation/Sprite
+        disableStateSprite();
     }
 
 
@@ -111,7 +126,7 @@ public class Animal : MonoBehaviour
     public void attacked() {
         state = AnimalStates.needHelp;
         pastAnimalState = state;
-        // Enable Animal Being attacked Sprites/Animations
+        animalStateSprites[(int)state].GetComponent<GameObject>().SetActive(true);
     }
 
     public void respawnAnimal() {
