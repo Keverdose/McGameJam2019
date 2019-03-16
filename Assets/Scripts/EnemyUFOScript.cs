@@ -31,28 +31,33 @@ public class EnemyUFOScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ufoDo();
+    }
+
+    public void ufoDo()
+    {
         ufoTimer += Time.deltaTime;
-        if(ufoTimer >= ufoTime)
+        if (ufoTimer >= ufoTime)
         {
             hunting = true;
         }
-        if(hunting)
+        if (hunting)
         {
-            if(!soundHasPlayed)
+            if (!soundHasPlayed)
             {
                 ufoSound.Play();
                 soundHasPlayed = true;
             }
-            
+
             transform.position = Vector2.MoveTowards(transform.position, targetLocation, ufoSpeed * Time.deltaTime);
-            if(transform.position == targetLocation)
+            if (transform.position == targetLocation)
             {
-                
+
                 if (Input.GetKey("space"))
                 {
                     target.transform.position = Vector2.MoveTowards(target.transform.position, originalTargetLocation, 0.1f * Time.deltaTime);
                 }
-                else 
+                else
                 {
                     target.transform.position = Vector2.MoveTowards(target.transform.position, transform.position, 0.1f * Time.deltaTime);
                 }
@@ -67,7 +72,7 @@ public class EnemyUFOScript : MonoBehaviour
         else
         {
             print("DONE");
-            
+
             transform.position = Vector2.MoveTowards(transform.position, ufoOriginalLocation, ufoSpeed * Time.deltaTime);
         }
     }
