@@ -5,6 +5,7 @@ chicken: https://www.youtube.com/watch?v=tDn9o4aCndw
 alien: https://www.youtube.com/watch?v=dZipOstSTsg
 "scream": https://www.youtube.com/watch?v=J_35qNvyKTs
 fox: https://www.youtube.com/watch?v=rFuY0wphZXw
+running: https://www.youtube.com/watch?v=grhooP9Qfmw
 
 forest theme: jason kalec
 dark theme: jason kalec
