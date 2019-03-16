@@ -25,34 +25,37 @@ public class Player : MonoBehaviour
     // Player Collision Function
     public void OnTriggerStay2D(Collider2D other) {
         
-        if(other.gameObject.tag == "Animal") {
+        
+        // Player Action Key is Pressed        
+        if(Input.GetKey("space")) {
 
-            print("PRESSING");
+            if (other.gameObject.tag == "Animal") {
 
-            if(other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.hungry && Input.GetKey("space")) {
-                timer += Time.deltaTime;
+                if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.hungry) {
+                    timer += Time.deltaTime;
 
-                if (timer >= maxFoodFeedingTime) {
-                    timer = 0.0f;
-                    other.gameObject.GetComponent<Animal>().feedFood();
+                    if (timer >= maxFoodFeedingTime) {
+                        timer = 0.0f;
+                        other.gameObject.GetComponent<Animal>().feedFood();
+                    }
                 }
-            }
 
-            else if(other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.thirsty && Input.GetKey("space")) {
-                timer += Time.deltaTime;
+                else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.thirsty) {
+                    timer += Time.deltaTime;
 
-                if (timer >= maxWaterFeedingTime) {
-                    timer = 0.0f;
-                    other.gameObject.GetComponent<Animal>().feedWater();
+                    if (timer >= maxWaterFeedingTime) {
+                        timer = 0.0f;
+                        other.gameObject.GetComponent<Animal>().feedWater();
+                    }
                 }
-            }
 
-            else if(other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.readyToHarvest && Input.GetKey("space")) {
-                timer += Time.deltaTime;
+                else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.readyToHarvest) {
+                    timer += Time.deltaTime;
 
-                if (timer >= maxHarvestTime) {
-                    timer = 0.0f;
-                    other.gameObject.GetComponent<Animal>().harvestAnimal();
+                    if (timer >= maxHarvestTime) {
+                        timer = 0.0f;
+                        other.gameObject.GetComponent<Animal>().harvestAnimal();
+                    }
                 }
             }
 
