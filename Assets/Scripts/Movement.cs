@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
+
 public class Movement : MonoBehaviour
 {
-    public float speed; 
+    public float speed;
+    Rigidbody2D rigidBody;
     // Start is called before the first frame update
     void Start()
     {
-
+        //No gravity for 2D movement
+        rigidBody.gravityScale = 0;
     }
 
     // Update is called once per frame
