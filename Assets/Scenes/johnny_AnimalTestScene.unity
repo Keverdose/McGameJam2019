@@ -611,10 +611,6 @@ MonoBehaviour:
   - {fileID: 1930488163}
   - {fileID: 301060172}
   - {fileID: 482646615}
-  maxFoodFeedingTime: 1
-  maxWaterFeedingTime: 1
-  maxHarvestTime: 1
-  timer: 0
   itemIndex: 0
 --- !u!50 &691621484
 Rigidbody2D:
@@ -1074,6 +1070,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 691621481, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
+      propertyPath: pickedUpItemList.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 691621481, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
+      propertyPath: pickedUpItemList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1930488163}
+    - target: {fileID: 691621481, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
+      propertyPath: pickedUpItemList.Array.data[1]
+      value: 
+      objectReference: {fileID: 301060172}
+    - target: {fileID: 691621481, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
+      propertyPath: pickedUpItemList.Array.data[2]
+      value: 
+      objectReference: {fileID: 482646615}
     - target: {fileID: 4274976261202904027, guid: 66fb1d2f08af94e08963bd6769835ce4,
         type: 3}
       propertyPath: m_RootOrder
@@ -1089,7 +1101,8 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 691621481, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
 --- !u!1001 &6114751273080473957
 PrefabInstance:

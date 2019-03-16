@@ -8,14 +8,6 @@ public class Player : MonoBehaviour
     // List of Animal State GameObject Sprites
     public List<GameObject> pickedUpItemList;
 
-    // Max Action Time
-    public float maxFoodFeedingTime;
-    public float maxWaterFeedingTime;
-    public float maxHarvestTime;
-
-    // Action Timer 
-    public float timer;
-
     // Held Item Number(Index)
     public int itemIndex;
     private int NONE_ITEM = 3;
@@ -28,7 +20,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("u")) {
+        if(Input.GetKeyDown("u")) {
             deliverHarvest();
         }
     }
@@ -37,41 +29,27 @@ public class Player : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other) {
      
         // Player Action Key is Pressed        
-        if(Input.GetKey("space")) {
+        if(Input.GetKeyDown("space")) {
 
             if (other.gameObject.tag == "Cow" || other.gameObject.tag == "Goat" || other.gameObject.tag == "Chicken") {
 
                 if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.hungry) {
-                    timer += Time.deltaTime;
-
-                    if (timer >= maxFoodFeedingTime) {
-                        other.gameObject.GetComponent<Animal>().feedFood();
-                        timer = 0.0f;
-                    }
+                    other.gameObject.GetComponent<Animal>().feedFood();  
                 }
 
                 else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.thirsty) {
-                    timer += Time.deltaTime;
-
-                    if (timer >= maxWaterFeedingTime) {
-                        other.gameObject.GetComponent<Animal>().feedWater();
-                        timer = 0.0f;
-                    }
+                   other.gameObject.GetComponent<Animal>().feedWater();               
                 }
 
                 else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.readyToHarvest && itemIndex == NONE_ITEM) {
-                    timer += Time.deltaTime;
+                    other.gameObject.GetComponent<Animal>().harvestAnimal();
 
-                    if (timer >= maxHarvestTime) {
-                        other.gameObject.GetComponent<Animal>().harvestAnimal();
+                    itemIndex = other.gameObject.GetComponent<Animal>().getHarvestedProduct();
 
-                        itemIndex = other.gameObject.GetComponent<Animal>().getHarvestedProduct();
+                    print("ANIMAL INDEX: " + itemIndex);
 
-                        print("ANIMAL INDEX: " + itemIndex);
-
-                        enableItemSprite(itemIndex);
-                        timer = 0.0f;
-                    }
+                    enableItemSprite(itemIndex);
+                    
                 }
             }
 
@@ -87,7 +65,7 @@ public class Player : MonoBehaviour
 
     // Function to Enable Item Sprite on Player
     private void enableItemSprite(int item) {
-        if (itemIndex != 3) {
+        if (item != 3) {
             pickedUpItemList[item].SetActive(true);
         }
     }
