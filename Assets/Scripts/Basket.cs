@@ -8,7 +8,7 @@ public class Basket : MonoBehaviour
     public GameObject milkUI;
     public GameObject eggUI;
     public GameObject cheeseUI;
-    public int orderIndex;
+    //public int orderIndex;
     public Harvest nextHarvest;
     Queue harvestQueue = new Queue();
 
@@ -19,7 +19,7 @@ public class Basket : MonoBehaviour
         harvest[0] = Harvest.Milk;
         harvest[1] = Harvest.Egg;
         harvest[2] = Harvest.Cheese;
-        orderIndex = 0;
+        //orderIndex = 0;
 
         getNewHarvest();
         harvestQueue.Enqueue(harvest[0]);
@@ -54,8 +54,10 @@ public class Basket : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         //Missing && player.itemIndex
-        if (Input.GetKeyDown(KeyCode.Space) && player != null && player.itemIndex == (int)nextHarvest)
+        if (Input.GetKeyDown(KeyCode.Space) && player != null)
         {
+            //print("lol");
+            //GameManager.score += 5;
             GetNextHarvest();
             player.deliverHarvest();
 
@@ -77,13 +79,14 @@ public class Basket : MonoBehaviour
     {
         if(harvestQueue.Count > 0)
         {
-            harvestQueue.Dequeue();
-            int r = UnityEngine.Random.Range(0, harvest.Length);
-            nextHarvest = harvest[r];
+            //nt r = UnityEngine.Random.Range(0, harvest.Length);
+            nextHarvest = (Harvest) harvestQueue.Dequeue();
         }
         else
         {
+            //nextHarvest = (Harvest)harvestQueue.Dequeue();
             getNewHarvest();
+            nextHarvest = (Harvest) harvestQueue.Dequeue();
         }
 
     }
