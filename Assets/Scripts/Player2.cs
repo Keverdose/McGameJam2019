@@ -29,7 +29,7 @@ public class Player2 : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other) {
      
         // Player Action Key is Pressed        
-        if(Input.GetKeyDown(KeyCode.RightShift)) {
+        if(Input.GetButtonDown("AButton2")) {
 
             // Animal Interaction (Cow, Goat, Chicken)
             if (other.gameObject.tag == "Cow" || other.gameObject.tag == "Goat" || other.gameObject.tag == "Chicken") {
@@ -61,6 +61,12 @@ public class Player2 : MonoBehaviour
                 print("FEEDING INDEX: " + itemIndex);
 
                 enableItemSprite(itemIndex);
+            }
+
+            // Put held itemm into the trash can
+            else if (other.gameObject.tag == "TrashCan")
+            {
+                deliverHarvest();
             }
 
 
