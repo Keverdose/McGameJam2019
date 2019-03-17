@@ -36,12 +36,14 @@ public class Player : MonoBehaviour
 
                 if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.hungry && itemIndex == 3) {
                     other.gameObject.GetComponent<Animal>().feedFood();
-                    disableItemSprite();  
+                    disableItemSprite();
+                    itemIndex = NONE_ITEM;
                 }
 
                 else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.thirsty && itemIndex == 4) {
                    other.gameObject.GetComponent<Animal>().feedWater();
                     disableItemSprite();
+                    itemIndex = NONE_ITEM;
                 }
 
                 else if (other.gameObject.GetComponent<Animal>().state == Animal.AnimalStates.readyToHarvest && itemIndex == NONE_ITEM) {
@@ -55,6 +57,9 @@ public class Player : MonoBehaviour
             // Food/Water Interaction
             else if((other.gameObject.tag == "Food" || other.gameObject.tag == "Water") && itemIndex == NONE_ITEM) {
                 itemIndex = other.gameObject.GetComponent<FeedingItem>().getItemNumber();
+
+                print("FEEDING INDEX: " + itemIndex);
+
                 enableItemSprite(itemIndex);
             }
 

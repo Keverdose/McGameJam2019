@@ -11,6 +11,8 @@ TagManager:
   - fox
   - chupacabra
   - ufo
+  - Food
+  - Water
   layers:
   - Default
   - TransparentFX

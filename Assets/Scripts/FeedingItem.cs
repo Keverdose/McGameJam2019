@@ -12,9 +12,9 @@ public class FeedingItem : MonoBehaviour
     // Returns an Integer for the Item that was picked up
     public int getItemNumber() {
         if (this.gameObject.tag == "Food") 
-            return 0;
+            return 3;
         if (this.gameObject.tag == "Water")
-            return 1;
+            return 4;
 
         print("ERROR: Returned Incorrect Item Number");
 
