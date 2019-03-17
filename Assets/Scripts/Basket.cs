@@ -54,9 +54,9 @@ public class Basket : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         //Missing && player.itemIndex
-        if (Input.GetKeyDown(KeyCode.Space) && player != null )
+        if (Input.GetKeyDown(KeyCode.Space) && player != null)
         {
-            print("lol");
+            //print("lol");
             //GameManager.score += 5;
             GetNextHarvest();
             player.deliverHarvest();
@@ -79,13 +79,14 @@ public class Basket : MonoBehaviour
     {
         if(harvestQueue.Count > 0)
         {
-            harvestQueue.Dequeue();
-            int r = UnityEngine.Random.Range(0, harvest.Length);
-            nextHarvest = harvest[r];
+            //nt r = UnityEngine.Random.Range(0, harvest.Length);
+            nextHarvest = (Harvest) harvestQueue.Dequeue();
         }
         else
         {
+            //nextHarvest = (Harvest)harvestQueue.Dequeue();
             getNewHarvest();
+            nextHarvest = (Harvest) harvestQueue.Peek();
         }
 
     }
