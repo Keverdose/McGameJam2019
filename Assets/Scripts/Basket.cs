@@ -86,7 +86,7 @@ public class Basket : MonoBehaviour
         {
             //nextHarvest = (Harvest)harvestQueue.Dequeue();
             getNewHarvest();
-            nextHarvest = (Harvest) harvestQueue.Peek();
+            nextHarvest = (Harvest) harvestQueue.Dequeue();
         }
 
     }
