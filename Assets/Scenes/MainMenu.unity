@@ -985,7 +985,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "On their way home from school on a friday afternoon, Boy and Girl heard
     of an urban legend that tells the tale of mysterious entities that ravage farms.
-    Scared for their friends. Boy and Girl  rush home to see whether their friends
+    Scared for their friends. Boy and Girl rush home to see whether their friends
     are okay. \n"
 --- !u!222 &541849281
 CanvasRenderer:
@@ -2427,8 +2427,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Little did they know that they would soon find themselves face to face
-    with these so called mysterious entities. \n"
+  m_Text: "Little do they know that they would soon find themselves face to face with
+    these so called mysterious entities. \n"
 --- !u!222 &1227763873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2525,6 +2525,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1564841467
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6248254411400794255, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManagerLullaby
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8256209
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.47325575
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.020082815
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248254411400794253, guid: 113b9a93a6087fe4fb26c21fae7543e5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 113b9a93a6087fe4fb26c21fae7543e5, type: 3}
 --- !u!1 &1824985326
 GameObject:
   m_ObjectHideFlags: 0
