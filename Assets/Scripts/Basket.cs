@@ -52,15 +52,33 @@ public class Basket : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        //Missing && player.itemIndex
-        if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightShift) && player != null && player.itemIndex == (int) nextHarvest)
-        {
-            //print("lol");
-            GameManager.score += 5;
-            GetNextHarvest();
-            player.deliverHarvest();
 
+       
+        if (collision.gameObject.name == "Boy")
+        {
+            Player player = collision.gameObject.GetComponent<Player>();
+            //Missing && player.itemIndex
+            if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightShift) && player != null && player.itemIndex == (int)nextHarvest)
+            {
+                //print("lol");
+                GameManager.score += 5;
+                GetNextHarvest();
+                player.deliverHarvest();
+
+            }
+        }
+        else if(collision.gameObject.name == "Girl")
+        {
+            Player2 player = collision.gameObject.GetComponent<Player2>();
+            //Missing && player.itemIndex
+            if (Input.GetButtonDown("AButton") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightShift) && player != null && player.itemIndex == (int)nextHarvest)
+            {
+                //print("lol");
+                GameManager.score += 5;
+                GetNextHarvest();
+                player.deliverHarvest();
+
+            }
         }
     }
 
