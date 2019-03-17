@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+
         index = 0;
         eventSystem.firstSelectedGameObject = theButton;
     }
@@ -35,20 +36,17 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(index);
         if(index != 0)
         {
             if (index == 1) // story
             {
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    Debug.Log(index + " Escape Down");
                     TutorialScreen.SetActive(true);
                     StoryScreen.SetActive(false);
                 }
                 if (Input.GetKeyUp(KeyCode.Escape))
                 {
-                    Debug.Log(index + " Escape Up");
                     index = 2;
                 }
             }
@@ -57,9 +55,9 @@ public class MainMenu : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Debug.Log(index + "Loading game...");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+
                 }
-               
             }
         }
     }

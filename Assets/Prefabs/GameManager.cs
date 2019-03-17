@@ -2,21 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public enum Harvest{Milk, Egg, Cheese};
 
 public class GameManager : MonoBehaviour
 {
     public static float score;
-    public static float timeLeft = 45;
+    public static float timeLeft = 10;
     public int pointsToWin = 30;
     public static int hearts;
+
+    [SerializeField]
+    public Text scoreText;
+    public GameObject losingScreen;
+    public GameObject winningScreen;
+    public GameObject secretScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        UpdateScore();
+        pointsToWin = 30;
         hearts = 0;
+        timeLeft = 30;
     }
 
     void Update()
@@ -26,17 +37,38 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+        UpdateScore();
     }
     void GameOver()
     {
+        scoreText.gameObject.SetActive(false);
         if(score < pointsToWin)
         {
-            //TODO: Change to losing scene.
-            print("U lost, score: " + score);
-        }else if(score > pointsToWin)
+            StartCoroutine(LosingRoutine());
+        }
+        else if(score > pointsToWin)
         {
-            //TODO: Change to losing scene.
-            print("WINNER WINNER CHICKEN DINNER oh wait MY CHIKCEN");
+            StartCoroutine(WinningRoutine());
         }
     }
+
+    IEnumerator LosingRoutine()
+    {
+        losingScreen.SetActive(true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadSceneAsync(0);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator WinningRoutine()
+    {
+        winningScreen.SetActive(true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadSceneAsync(0);
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
+    public void UpdateScore() => scoreText.text = "Score: " + score.ToString();
+
 }
