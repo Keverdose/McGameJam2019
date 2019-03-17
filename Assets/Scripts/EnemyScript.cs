@@ -255,6 +255,7 @@ public class EnemyScript : MonoBehaviour
         if (foxHuntingTimer >= foxHuntingTime && !(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             foxHunting = true;
+            foxTarget.GetComponent<Animal>().attacked();
             if (!foxSoundHasPlayed)
             {
                 foxSound.Play();
@@ -262,14 +263,14 @@ public class EnemyScript : MonoBehaviour
             }
 
         }
-        if (foxHuntingTimer >= (foxHuntingTime - 5.0f))
+        /*if (foxHuntingTimer >= (foxHuntingTime - 5.0f))
         {
 
             if (!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
             {
                 foxTarget.GetComponent<Animal>().attacked();
             };
-        }
+        }*/
 
         if (!foxHunting)
         {
