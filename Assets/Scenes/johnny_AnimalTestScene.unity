@@ -209,11 +209,12 @@ MonoBehaviour:
   maxHungryTimer: 7
   maxThirstyTimer: 5
   maxHarvestTimer: 5
-  maxRespawnTimer: 0
+  maxRespawnTimer: 5
   hungryTimer: 0
   thirstyTimer: 0
   harvestTimer: 0
   respawnTimer: 0
+  originalPosition: {fileID: 0}
 --- !u!61 &178702490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -671,11 +672,12 @@ MonoBehaviour:
   maxHungryTimer: 7
   maxThirstyTimer: 5
   maxHarvestTimer: 11
-  maxRespawnTimer: 0
+  maxRespawnTimer: 5
   hungryTimer: 0
   thirstyTimer: 0
   harvestTimer: 0
   respawnTimer: 0
+  originalPosition: {fileID: 0}
 --- !u!61 &1196874509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -730,11 +732,12 @@ MonoBehaviour:
   maxHungryTimer: 4
   maxThirstyTimer: 5
   maxHarvestTimer: 10
-  maxRespawnTimer: 30
+  maxRespawnTimer: 5
   hungryTimer: 0
   thirstyTimer: 0
   harvestTimer: 0
   respawnTimer: 0
+  originalPosition: {fileID: 0}
 --- !u!61 &1210178896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -799,6 +802,8 @@ MonoBehaviour:
   - {fileID: 0}
   harvest: 000000000100000002000000
   basket: {fileID: 674261704}
+  score: 0
+  timeLeft: 0
 --- !u!4 &1473508934
 Transform:
   m_ObjectHideFlags: 0
