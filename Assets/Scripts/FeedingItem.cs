@@ -15,9 +15,11 @@ public class FeedingItem : MonoBehaviour
             return 3;
         if (this.gameObject.tag == "Water")
             return 4;
+        if (this.gameObject.tag == "TrashCan")
+            return 5;
 
         print("ERROR: Returned Incorrect Item Number");
 
-        return 2;
+        return 9;
     }
 }
