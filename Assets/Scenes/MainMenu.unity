@@ -889,11 +889,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'When coming home from school on a friday afternoon, boy and girl heard
+  m_Text: "On their way home from school on a friday afternoon, Boy and Girl heard
     of an urban legend that tells the tale of mysterious entities that ravage farms.
-    Scared for their friends. They rush home to check whether they were okay.
-
-'
+    Scared for their friends. Boy and Girl  rush home to see whether their friends
+    are okay. \n"
 --- !u!222 &541849281
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2128,7 +2127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.8399658, y: -264}
+  m_AnchoredPosition: {x: 0.8399658, y: -285}
   m_SizeDelta: {x: -390.9, y: -355.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227763872
@@ -2447,7 +2446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1961201054
 RectTransform:
   m_ObjectHideFlags: 0
