@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public Harvest[] harvest;
     public GameObject basket;
     public float score;
-    public float timeLeft;
+    public static float timeLeft = 180;
 
     // Start is called before the first frame update
     void Start()
