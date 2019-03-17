@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
                 enableItemSprite(itemIndex);
             }
 
+            // Put held itemm into the trash can
+            else if(other.gameObject.tag == "TrashCan") {
+                deliverHarvest();
+            }
+
 
         }
     }
