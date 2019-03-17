@@ -36,6 +36,8 @@ public class EnemyScript : MonoBehaviour
     public float ufoTimer;
     public AudioSource ufoSound;
     public bool ufoSoundHasPlayed;
+    public GameObject ufoZone;
+    public bool playerColliding;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,8 +98,12 @@ public class EnemyScript : MonoBehaviour
 
     public void ufoDo()
     {
-        ufoTimer += Time.deltaTime;
-        if (ufoTimer >= ufoTime)
+        if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            ufoTimer += Time.deltaTime;
+        }
+        
+        if (ufoTimer >= ufoTime && !(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             ufoHunting = true;
         }
@@ -112,17 +118,28 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, ufoTargetLocation, ufoSpeed * Time.deltaTime);
             if (transform.position == ufoTargetLocation)
             {
+                
 
-                if (Input.GetKey("space"))
+                if (Input.GetKey("space") && ufoZone.GetComponent<ufoZoneScript>().canSave)
                 {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, ufoOriginalTargetLocation, 0.1f * Time.deltaTime);
                 }
                 else
                 {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, transform.position, 0.1f * Time.deltaTime);
+                    ufoTarget.GetComponent<Animal>().attacked();
                 }
                 if (ufoTarget.transform.position == ufoOriginalTargetLocation)
                 {
+                    ufoTimer = 0.0f;
+                    ufoHunting = false;
+                    ufoSoundHasPlayed = false;
+                    
+                }
+                if(ufoTarget.transform.position == transform.position)
+                {
+                    ufoTarget.GetComponent<Animal>().originalPosition.position = ufoOriginalTargetLocation;
+                    ufoTarget.GetComponent<Animal>().animalDied();
                     ufoTimer = 0.0f;
                     ufoHunting = false;
                     ufoSoundHasPlayed = false;
@@ -136,6 +153,23 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, ufoOriginalLocation, ufoSpeed * Time.deltaTime);
         }
     }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ufozone"))
+        {
+            playerColliding = true;
+            print("ITS INNNN!");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("ufozone"))
+        {
+            playerColliding = false;
+            print("NONONONONO");
+        }
+    }*/
 
     void chupacabraDo()
     {

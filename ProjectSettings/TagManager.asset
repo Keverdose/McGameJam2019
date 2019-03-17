@@ -13,6 +13,7 @@ TagManager:
   - ufo
   - Food
   - Water
+  - ufozone
   layers:
   - Default
   - TransparentFX
