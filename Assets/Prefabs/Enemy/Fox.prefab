@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchSound: {fileID: 730585524}
   foxHunting: 0
-  foxMapSize: {x: 1.5, y: 0.75}
+  foxMapSize: {x: 1.95, y: 1}
   foxTargetLoc: {x: 0, y: 0, z: 0}
   foxSpeed: 0.5
   foxHuntingTime: 10
@@ -247,7 +247,8 @@ MonoBehaviour:
   foxTarget: {fileID: 0}
   foxSound: {fileID: 3526801482653654158}
   foxSoundHasPlayed: 0
-  chupacabraMapSize: 2
+  chickenSaved: 0
+  chupacabraMapSize: {x: 2, y: 1}
   chupacabraSpeed: 2
   chupacabraTarget: {fileID: 0}
   chupacabraHunting: 0
