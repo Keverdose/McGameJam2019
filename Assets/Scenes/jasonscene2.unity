@@ -513,6 +513,15 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 532976930, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4013530153200710750, guid: 7aba7dabb76844ae395211c6e531891a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 532976926, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
       propertyPath: foxTarget
       value: 
@@ -599,12 +608,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &674261704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6114751272678859693, guid: c177419c57914499d8f47e2b00d04023,
-    type: 3}
-  m_PrefabInstance: {fileID: 6114751273080473957}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &696429941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1029,17 +1032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 842c06a552e794ec8ba7e47f8cbc0f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 2302616554355018119, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
-  - {fileID: 7599167558456702370, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
-  - {fileID: 8596823408892412731, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  harvest: 000000000100000002000000
-  basket: {fileID: 674261704}
-  score: 0
-  timeLeft: 0
+  pointsToWin: 30
 --- !u!4 &1473508934
 Transform:
   m_ObjectHideFlags: 0
@@ -1258,6 +1251,11 @@ PrefabInstance:
       propertyPath: chupacabraTarget
       value: 
       objectReference: {fileID: 1210178894}
+    - target: {fileID: 4158663629768177185, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
 --- !u!1001 &441995327671680529
@@ -1484,6 +1482,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Girl
       objectReference: {fileID: 0}
+    - target: {fileID: 7652996717489467988, guid: e125ae1da939a4eea9da5c6417e89124,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7652996717489467994, guid: e125ae1da939a4eea9da5c6417e89124,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1538,16 +1541,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5046231884420517366, guid: e125ae1da939a4eea9da5c6417e89124,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2416207404090553135, guid: e125ae1da939a4eea9da5c6417e89124,
-        type: 3}
-      propertyPath: speed
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e125ae1da939a4eea9da5c6417e89124, type: 3}

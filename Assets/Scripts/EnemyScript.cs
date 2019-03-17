@@ -190,6 +190,10 @@ public class EnemyScript : MonoBehaviour
         if (chupacabraHunting)
         {
             transform.position = Vector2.MoveTowards(transform.position, chupacabraTarget.transform.position, chupacabraSpeed * Time.deltaTime);
+
+            // Disable the BoxCollider
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
             if (transform.position == chupacabraTarget.transform.position)
             {
                 chupacabraHuntingTimer = 0.0f;
@@ -207,6 +211,9 @@ public class EnemyScript : MonoBehaviour
             else {
                 // SAVED GOAT 
                 chupacabraTarget.GetComponent<Animal>().animalSaved();
+
+                // Enable the BoxCollider
+                this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
         else
@@ -302,6 +309,9 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, foxTarget.transform.position, foxSpeed * Time.deltaTime);
             if (transform.position == foxTarget.transform.position)
             {
+                // Disable the BoxCollider
+                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
                 foxSoundHasPlayed = false;
@@ -315,6 +325,9 @@ public class EnemyScript : MonoBehaviour
             else {
                 // CHICKENHAS BEEN SAVED
                 foxTarget.GetComponent<Animal>().animalSaved();
+
+                // Enable the BoxCollider
+                this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
     }
@@ -329,6 +342,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
+                chupacabraSoundHasPlayed = false;
                 // chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
@@ -339,6 +353,7 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("UwU YUU SAVED CHICKEN!!");
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
+                foxSoundHasPlayed = false;
 
             }
         }
