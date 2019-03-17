@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player2 : MonoBehaviour
 {
 
     // List of Animal State GameObject Sprites
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other) {
      
         // Player Action Key is Pressed        
-        if(Input.GetKeyDown("space")) {
+        if(Input.GetKeyDown(KeyCode.RightShift)) {
 
             // Animal Interaction (Cow, Goat, Chicken)
             if (other.gameObject.tag == "Cow" || other.gameObject.tag == "Goat" || other.gameObject.tag == "Chicken") {
@@ -61,11 +61,6 @@ public class Player : MonoBehaviour
                 print("FEEDING INDEX: " + itemIndex);
 
                 enableItemSprite(itemIndex);
-            }
-
-            // Put held itemm into the trash can
-            else if(other.gameObject.tag == "TrashCan") {
-                deliverHarvest();
             }
 
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5046231884420517366}
   - component: {fileID: 8549304782710246234}
   - component: {fileID: 2416207404090553135}
-  - component: {fileID: 2061460829}
+  - component: {fileID: 3191880476309057335}
   m_Layer: 0
   m_Name: Girl
   m_TagString: Untagged
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!114 &2061460829
+--- !u!114 &3191880476309057335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7652996717489467988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658ebfc0584a93d49a7dcb827199faf5, type: 3}
+  m_Script: {fileID: 11500000, guid: ac33e2b922f764894a0d0a9f798ead8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pickedUpItemList:

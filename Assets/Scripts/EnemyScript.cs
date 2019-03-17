@@ -14,7 +14,7 @@ public class EnemyScript : MonoBehaviour {
     public bool foxSoundHasPlayed;
     public bool chickenSaved;
 
-    public float chupacabraMapSize = 2.0f;
+    public Vector2 chupacabraMapSize = new Vector2(2.0f, 1.0f);
     public float chupacabraSpeed = 2.0f;
     public GameObject chupacabraTarget;
     public bool chupacabraHunting;
@@ -51,6 +51,7 @@ public class EnemyScript : MonoBehaviour {
         }
 
         else if (gameObject.CompareTag("chupacabra")) {
+            this.GetComponent<SpriteRenderer>().enabled = false;
             chupacabraSoundHasPlayed = false;
             chupacabraHasRespawned = true;
             chupacabraHunting = false;
@@ -156,6 +157,14 @@ public class EnemyScript : MonoBehaviour {
                 chupacabraSoundHasPlayed = true;
             }
         }
+        if (chupacabraHuntingTimer >= (chupacabraHuntingTime - 1.0f))
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        /*else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }*/
         if (chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f)) {
 
             if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp)) {
@@ -193,6 +202,7 @@ public class EnemyScript : MonoBehaviour {
         else {
             transform.position = Vector2.MoveTowards(transform.position, chupacabraOriginalLocation, chupacabraSpeed * Time.deltaTime);
             if (!chupacabraHasRespawned && chupacabraOriginalLocation == transform.position) {
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 chupacabraRespawn();
             }
         }
@@ -200,18 +210,18 @@ public class EnemyScript : MonoBehaviour {
     public void chupacabraRespawn() {
         int pos = Mathf.RoundToInt(Random.Range(1.0f, 4.0f));
         print(pos);
-        Vector3 newLoc = new Vector3(chupacabraMapSize, chupacabraMapSize, 0.0f);
+        Vector3 newLoc = new Vector3(chupacabraMapSize.x, chupacabraMapSize.y, 0.0f);
         if (pos == 1) {
-            newLoc = new Vector3(chupacabraMapSize, Random.Range(-chupacabraMapSize, chupacabraMapSize), 0.0f);
+            newLoc = new Vector3(chupacabraMapSize.x, Random.Range(-chupacabraMapSize.y, chupacabraMapSize.y), 0.0f);
         }
         else if (pos == 2) {
-            newLoc = new Vector3(Random.Range(-chupacabraMapSize, chupacabraMapSize), chupacabraMapSize, 0.0f);
+            newLoc = new Vector3(Random.Range(-chupacabraMapSize.x, chupacabraMapSize.x), chupacabraMapSize.y, 0.0f);
         }
         else if (pos == 3) {
-            newLoc = new Vector3(-chupacabraMapSize, Random.Range(-chupacabraMapSize, chupacabraMapSize), 0.0f);
+            newLoc = new Vector3(-chupacabraMapSize.x, Random.Range(-chupacabraMapSize.y, chupacabraMapSize.y), 0.0f);
         }
         else if (pos == 4) {
-            newLoc = new Vector3(Random.Range(-chupacabraMapSize, chupacabraMapSize), -chupacabraMapSize, 0.0f);
+            newLoc = new Vector3(Random.Range(-chupacabraMapSize.x, chupacabraMapSize.x), -chupacabraMapSize.y, 0.0f);
         }
         transform.position = newLoc;
         chupacabraOriginalLocation = transform.position;
