@@ -24,7 +24,6 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
-
         index = 0;
         eventSystem.firstSelectedGameObject = theButton;
     }
@@ -39,24 +38,26 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+
         if (index != 0)
         {
             if (index == 1) // story
             {
                 StartCoroutine(LoadTutorialRoutine());
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("AButton"))
                 {
                     TutorialScreen.SetActive(true);
                     StoryScreen.SetActive(false);
                 }
-                if (Input.GetKeyUp(KeyCode.Escape))
+                if (Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("AButton"))
                 {
+                    Debug.Log("ButtonUp works");
                     index = 2;
                 }
             }
             if (index == 2) // tutorial
             {
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
                 {
                     Debug.Log(index + "Loading game...");
                     SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
