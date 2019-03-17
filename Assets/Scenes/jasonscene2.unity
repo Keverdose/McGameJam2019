@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,60 +187,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 696429941}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &178702487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178702486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414aaaf429a525649824e9e87a644f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalStateSprites:
-  - {fileID: 696429945}
-  - {fileID: 696429944}
-  - {fileID: 696429943}
-  - {fileID: 696429942}
-  state: 5
-  pastAnimalState: 5
-  maxHungryTimer: 7
-  maxThirstyTimer: 5
-  maxHarvestTimer: 5
-  maxRespawnTimer: 5
-  hungryTimer: 0
-  thirstyTimer: 0
-  harvestTimer: 0
-  respawnTimer: 0
-  originalPosition: {fileID: 0}
---- !u!61 &178702490
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178702486}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
-    newSize: {x: 0.25, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!1001 &229012555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,11 +197,6 @@ PrefabInstance:
     - target: {fileID: 4979177035467965329, guid: 0790ea734d3de4e2cb260700c3e6fa89,
         type: 3}
       propertyPath: m_Name
-      value: Cow
-      objectReference: {fileID: 0}
-    - target: {fileID: 4979177035467965329, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-        type: 3}
-      propertyPath: m_TagString
       value: Cow
       objectReference: {fileID: 0}
     - target: {fileID: 4979177035467965343, guid: 0790ea734d3de4e2cb260700c3e6fa89,
@@ -313,52 +254,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4574725050362026186, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5597810919710495935, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6534918636997979107, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 320762797413600591, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0790ea734d3de4e2cb260700c3e6fa89, type: 3}
---- !u!1 &229012556 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4574725050362026186, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-    type: 3}
-  m_PrefabInstance: {fileID: 229012555}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &229012557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5597810919710495935, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-    type: 3}
-  m_PrefabInstance: {fileID: 229012555}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &229012558 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6534918636997979107, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-    type: 3}
-  m_PrefabInstance: {fileID: 229012555}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &229012559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 320762797413600591, guid: 0790ea734d3de4e2cb260700c3e6fa89,
-    type: 3}
-  m_PrefabInstance: {fileID: 229012555}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,6 +350,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fox
       objectReference: {fileID: 0}
+    - target: {fileID: 7599167558456702370, guid: 7aba7dabb76844ae395211c6e531891a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7599167558456702383, guid: 7aba7dabb76844ae395211c6e531891a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,26 +410,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7599167558456702380, guid: 7aba7dabb76844ae395211c6e531891a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 532976930, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013530153200710750, guid: 7aba7dabb76844ae395211c6e531891a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 532976926, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
       propertyPath: foxTarget
       value: 
       objectReference: {fileID: 178702486}
-    m_RemovedComponents:
-    - {fileID: 532976931, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
 --- !u!1 &630393291
 GameObject:
@@ -620,11 +507,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chicken
       objectReference: {fileID: 0}
-    - target: {fileID: 8749957538123004742, guid: eb78829f525124cfb8365bc79ac22a0e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Chicken
-      objectReference: {fileID: 0}
     - target: {fileID: 8749957538123004736, guid: eb78829f525124cfb8365bc79ac22a0e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,52 +562,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3145128675026347808, guid: eb78829f525124cfb8365bc79ac22a0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4202735400466207027, guid: eb78829f525124cfb8365bc79ac22a0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4204695759223709204, guid: eb78829f525124cfb8365bc79ac22a0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9100620858056207229, guid: eb78829f525124cfb8365bc79ac22a0e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb78829f525124cfb8365bc79ac22a0e, type: 3}
---- !u!1 &696429942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9100620858056207229, guid: eb78829f525124cfb8365bc79ac22a0e,
-    type: 3}
-  m_PrefabInstance: {fileID: 696429941}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &696429943 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4202735400466207027, guid: eb78829f525124cfb8365bc79ac22a0e,
-    type: 3}
-  m_PrefabInstance: {fileID: 696429941}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &696429944 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3145128675026347808, guid: eb78829f525124cfb8365bc79ac22a0e,
-    type: 3}
-  m_PrefabInstance: {fileID: 696429941}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &696429945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4204695759223709204, guid: eb78829f525124cfb8365bc79ac22a0e,
-    type: 3}
-  m_PrefabInstance: {fileID: 696429941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &756893910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -737,11 +575,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UFO
-      objectReference: {fileID: 0}
-    - target: {fileID: 2302616554355018119, guid: 39d625181385440fa9b0b47ba71c1446,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2302616554355018116, guid: 39d625181385440fa9b0b47ba71c1446,
         type: 3}
@@ -802,10 +635,6 @@ PrefabInstance:
       propertyPath: ufoTarget
       value: 
       objectReference: {fileID: 1196874505}
-    - target: {fileID: 1319238465, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
-      propertyPath: ufoTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1319238465, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
       propertyPath: ufoZone
       value: 
@@ -889,120 +718,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 229012555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1196874506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196874505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414aaaf429a525649824e9e87a644f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalStateSprites:
-  - {fileID: 229012559}
-  - {fileID: 229012558}
-  - {fileID: 229012557}
-  - {fileID: 229012556}
-  state: 5
-  pastAnimalState: 5
-  maxHungryTimer: 7
-  maxThirstyTimer: 5
-  maxHarvestTimer: 11
-  maxRespawnTimer: 5
-  hungryTimer: 0
-  thirstyTimer: 0
-  harvestTimer: 0
-  respawnTimer: 0
-  originalPosition: {fileID: 0}
---- !u!61 &1196874509
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1196874505}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
-    newSize: {x: 0.25, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!1 &1210178894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6099210831074325105, guid: 61a181c97d99742d996806f0d9d530ce,
     type: 3}
   m_PrefabInstance: {fileID: 1500604831}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1210178895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210178894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414aaaf429a525649824e9e87a644f5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animalStateSprites:
-  - {fileID: 1500604835}
-  - {fileID: 1500604834}
-  - {fileID: 1500604833}
-  - {fileID: 1500604832}
-  state: 5
-  pastAnimalState: 5
-  maxHungryTimer: 4
-  maxThirstyTimer: 5
-  maxHarvestTimer: 10
-  maxRespawnTimer: 5
-  hungryTimer: 0
-  thirstyTimer: 0
-  harvestTimer: 0
-  respawnTimer: 0
-  originalPosition: {fileID: 0}
---- !u!61 &1210178896
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210178894}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.25, y: 0.25}
-    newSize: {x: 0.25, y: 0.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25}
-  m_EdgeRadius: 0
 --- !u!1 &1473508932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +754,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsToWin: 30
+  scoreText: {fileID: 0}
+  losingScreen: {fileID: 0}
+  winningScreen: {fileID: 0}
+  secretScreen: {fileID: 0}
 --- !u!4 &1473508934
 Transform:
   m_ObjectHideFlags: 0
@@ -1057,11 +782,6 @@ PrefabInstance:
     - target: {fileID: 6099210831074325105, guid: 61a181c97d99742d996806f0d9d530ce,
         type: 3}
       propertyPath: m_Name
-      value: Goat
-      objectReference: {fileID: 0}
-    - target: {fileID: 6099210831074325105, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_TagString
       value: Goat
       objectReference: {fileID: 0}
     - target: {fileID: 6099210831074327951, guid: 61a181c97d99742d996806f0d9d530ce,
@@ -1119,62 +839,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4101607163820397279, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4101607163820397279, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1192010026432997885, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4101607163820397274, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6533203384260829145, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8008791915936417195, guid: 61a181c97d99742d996806f0d9d530ce,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61a181c97d99742d996806f0d9d530ce, type: 3}
---- !u!1 &1500604832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8008791915936417195, guid: 61a181c97d99742d996806f0d9d530ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1500604831}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1500604833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6533203384260829145, guid: 61a181c97d99742d996806f0d9d530ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1500604831}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1500604834 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4101607163820397274, guid: 61a181c97d99742d996806f0d9d530ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1500604831}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1500604835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1192010026432997885, guid: 61a181c97d99742d996806f0d9d530ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1500604831}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1516311656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1186,11 +852,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Chupacabra
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596823408892412731, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8596823408892412728, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
         type: 3}
@@ -1251,11 +912,6 @@ PrefabInstance:
       propertyPath: chupacabraTarget
       value: 
       objectReference: {fileID: 1210178894}
-    - target: {fileID: 4158663629768177185, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
 --- !u!1001 &441995327671680529
