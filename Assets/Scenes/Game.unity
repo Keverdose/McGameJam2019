@@ -261,6 +261,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d2daa0d42054cebae9ee2def56b6a7, type: 3}
+--- !u!1001 &92782668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5339796695166219003, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManagerDay
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.21865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0817277
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.675734
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339796695166219001, guid: b94915f8a2b339a4ca7a654c2b480051,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b94915f8a2b339a4ca7a654c2b480051, type: 3}
 --- !u!1 &158789202
 GameObject:
   m_ObjectHideFlags: 0
@@ -1406,6 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsToWin: 30
+  secretWin: 45
   scoreText: {fileID: 1554673196}
   losingScreen: {fileID: 1393174279}
   winningScreen: {fileID: 1059065020}
