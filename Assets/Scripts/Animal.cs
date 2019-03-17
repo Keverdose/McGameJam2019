@@ -30,7 +30,9 @@ public class Animal : MonoBehaviour
     public float harvestTimer;
     public float respawnTimer;
 
-    // BoxCollider2D collider;
+
+    public Transform originalPosition;
+    private int activeSpriteIdex;
 
 
     // Start Function
@@ -40,12 +42,20 @@ public class Animal : MonoBehaviour
         harvestTimer = 0;
         respawnTimer = 0;
 
+        activeSpriteIdex = 9;
+
         state = AnimalStates.neutral;
         pastAnimalState = AnimalStates.neutral;
+
+        originalPosition = this.gameObject.transform;
     }
 
     // Update Function
     void Update() {
+
+        if(Input.GetKeyDown("o")) {
+            animalDied();
+        }
 
         // ================== Timer change based on State ================== //
         if (state == AnimalStates.neutral) {
@@ -54,9 +64,19 @@ public class Animal : MonoBehaviour
             harvestTimer += Time.deltaTime;
         }
 
-        else if(state == AnimalStates.respawning) {
-            respawnTimer -= Time.deltaTime;
+        if(state == AnimalStates.respawning && respawnTimer <= maxRespawnTimer) {
+            respawnTimer += Time.deltaTime;
         }
+
+        if (state == AnimalStates.respawning && respawnTimer >= maxRespawnTimer) {
+            animalRespawn();
+
+            print("IN HERE");
+
+            state = pastAnimalState;
+            pastAnimalState = AnimalStates.neutral;
+        }
+
 
         // ============ Change of State based on Timer ============ // 
 
@@ -145,10 +165,43 @@ public class Animal : MonoBehaviour
         animalStateSprites[(int)state].SetActive(true);
     }
 
-    public void respawnAnimal() {
+
+    // Animal has died and set into a respawning state
+    public void animalDied() {
+        pastAnimalState = state;
         changeState(AnimalStates.respawning);
         // Disable Animal Sprite Entirely 
         // Disable Animal GameObject Until Respawned
+
+        this.gameObject.transform.position = originalPosition.position;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        disableChildObjects();
+
     }
 
+    // Respawns the Animal
+    public void animalRespawn() {
+        respawnTimer = 0.0f;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        enableChildObjects();
+    }
+
+    private void disableChildObjects() {
+        for(int i = 0; i < animalStateSprites.Count; i++) {
+            if(animalStateSprites[i].activeInHierarchy == true) {
+                activeSpriteIdex = i;
+                animalStateSprites[i].SetActive(false);   
+            }
+        }
+    }
+
+    private void enableChildObjects() {
+
+        if (activeSpriteIdex != 9) {
+            animalStateSprites[activeSpriteIdex].SetActive(true);
+            activeSpriteIdex = 9;
+        }
+    }
 }
