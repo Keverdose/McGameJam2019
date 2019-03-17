@@ -410,26 +410,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7599167558456702380, guid: 7aba7dabb76844ae395211c6e531891a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 532976930, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4013530153200710750, guid: 7aba7dabb76844ae395211c6e531891a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 532976926, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
       propertyPath: foxTarget
       value: 
       objectReference: {fileID: 178702486}
-    m_RemovedComponents:
-    - {fileID: 532976931, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
 --- !u!1 &630393291
 GameObject:
@@ -591,11 +576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UFO
       objectReference: {fileID: 0}
-    - target: {fileID: 2302616554355018119, guid: 39d625181385440fa9b0b47ba71c1446,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2302616554355018116, guid: 39d625181385440fa9b0b47ba71c1446,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -655,10 +635,6 @@ PrefabInstance:
       propertyPath: ufoTarget
       value: 
       objectReference: {fileID: 1196874505}
-    - target: {fileID: 1319238465, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
-      propertyPath: ufoTime
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1319238465, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
       propertyPath: ufoZone
       value: 
@@ -778,6 +754,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsToWin: 30
+  scoreText: {fileID: 0}
+  losingScreen: {fileID: 0}
+  winningScreen: {fileID: 0}
+  secretScreen: {fileID: 0}
 --- !u!4 &1473508934
 Transform:
   m_ObjectHideFlags: 0
@@ -873,11 +853,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chupacabra
       objectReference: {fileID: 0}
-    - target: {fileID: 8596823408892412731, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8596823408892412728, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -931,11 +906,6 @@ PrefabInstance:
     - target: {fileID: 8596823408892412728, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158663629768177185, guid: 50e3e0e3c10cf47118bc2f131d2d2fad,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 608709748, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
