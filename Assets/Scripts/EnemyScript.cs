@@ -175,7 +175,11 @@ public class EnemyScript : MonoBehaviour
         }
         if(chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f))
         {
-            chupacabraTarget.GetComponent<Animal>().attacked();
+
+            if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+            {
+                chupacabraTarget.GetComponent<Animal>().attacked();
+            };
         }
 
         if (chupacabraHunting)
