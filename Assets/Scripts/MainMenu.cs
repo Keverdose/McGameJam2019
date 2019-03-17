@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public GameObject NextScreen;
     public GameObject StoryScreen;
     public GameObject TutorialScreen;
+
+    public AudioMixer audioMixer;
 
 
     // H4cky way to keep track of which screen we're at
@@ -78,5 +81,11 @@ public class MainMenu : MonoBehaviour
     public void DoQuit()
     {
         Application.Quit();
+    }
+
+    public void SetVolume(float volume)
+    {
+        Debug.Log(volume);
+        audioMixer.SetFloat("volume", volume);
     }
 }
