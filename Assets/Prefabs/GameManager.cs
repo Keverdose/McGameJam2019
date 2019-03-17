@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
         losingScreen.SetActive(true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync(0);
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
     IEnumerator WinningRoutine()
@@ -65,7 +64,6 @@ public class GameManager : MonoBehaviour
         winningScreen.SetActive(true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync(0);
-        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 
 
