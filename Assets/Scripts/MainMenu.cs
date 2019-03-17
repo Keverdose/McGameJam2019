@@ -74,4 +74,9 @@ public class MainMenu : MonoBehaviour
         }
 
     }
+
+    public void DoQuit()
+    {
+        Application.Quit();
+    }
 }
