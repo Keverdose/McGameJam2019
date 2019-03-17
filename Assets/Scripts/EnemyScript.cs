@@ -311,6 +311,11 @@ public class EnemyScript : MonoBehaviour
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
                 foxTarget.GetComponent<Animal>().animalDied();
             }
+
+            else {
+                // CHICKENHAS BEEN SAVED
+                foxTarget.GetComponent<Animal>().animalSaved();
+            }
         }
     }
 
@@ -334,7 +339,7 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("UwU YUU SAVED CHICKEN!!");
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
-                foxTarget.GetComponent<Animal>().animalSaved();
+
             }
         }
         
