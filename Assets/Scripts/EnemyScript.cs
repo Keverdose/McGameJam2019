@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     public bool chupacabraHasRespawned;
     public AudioSource chupacabraSound;
     public bool chupacabraSoundHasPlayed;
+    public bool chupacabraHuntingFailed = false;
 
     public bool ufoHunting;
     public GameObject ufoTarget;
@@ -202,6 +203,11 @@ public class EnemyScript : MonoBehaviour
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
 
             }
+
+            else {
+                // SAVED GOAT 
+                chupacabraTarget.GetComponent<Animal>().animalSaved();
+            }
         }
         else
         {
@@ -317,7 +323,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
-                chupacabraTarget.GetComponent<Animal>().animalSaved();
+                // chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
         if(this.gameObject.CompareTag("fox"))
