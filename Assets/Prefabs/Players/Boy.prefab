@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 441995328887987698}
   - component: {fileID: 441995328887987699}
   - component: {fileID: 3429354203861183017}
-  - component: {fileID: 7684139215278360248}
-  - component: {fileID: 691621480}
   - component: {fileID: 691621484}
   - component: {fileID: 1101198592393462594}
   - component: {fileID: 691621481}
@@ -103,58 +101,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
---- !u!61 &7684139215278360248
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441995328887987696}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0
---- !u!61 &691621480
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441995328887987696}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0
 --- !u!50 &691621484
 Rigidbody2D:
   serializedVersion: 4
@@ -228,6 +174,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441995328887987698}
     m_Modifications:
+    - target: {fileID: 1053546704978663451, guid: 4974943e998344c27b81d4cee9849e64,
+        type: 3}
+      propertyPath: m_Name
+      value: CheeseHarvest
+      objectReference: {fileID: 0}
+    - target: {fileID: 1053546704978663451, guid: 4974943e998344c27b81d4cee9849e64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1053546704978663448, guid: 4974943e998344c27b81d4cee9849e64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -281,16 +237,6 @@ PrefabInstance:
     - target: {fileID: 1053546704978663448, guid: 4974943e998344c27b81d4cee9849e64,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053546704978663451, guid: 4974943e998344c27b81d4cee9849e64,
-        type: 3}
-      propertyPath: m_Name
-      value: CheeseHarvest
-      objectReference: {fileID: 0}
-    - target: {fileID: 1053546704978663451, guid: 4974943e998344c27b81d4cee9849e64,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -400,6 +346,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441995328887987698}
     m_Modifications:
+    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
+        type: 3}
+      propertyPath: m_Name
+      value: EggHarvest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7828755858050540706, guid: c6116cd1ebacc4c599d778568c72a538,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -453,16 +409,6 @@ PrefabInstance:
     - target: {fileID: 7828755858050540706, guid: c6116cd1ebacc4c599d778568c72a538,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
-        type: 3}
-      propertyPath: m_Name
-      value: EggHarvest
-      objectReference: {fileID: 0}
-    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

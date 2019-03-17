@@ -54,7 +54,7 @@ public class Basket : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         //Missing && player.itemIndex
-        if (Input.GetKeyDown(KeyCode.Space) && player != null && player.itemIndex == (int) nextHarvest)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.RightShift) && player != null && player.itemIndex == (int) nextHarvest)
         {
             //print("lol");
             GameManager.score += 5;
