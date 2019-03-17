@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public enum Harvest{Milk, Egg, Cheese};
 
@@ -12,10 +13,16 @@ public class GameManager : MonoBehaviour
     public int pointsToWin = 30;
     public static int hearts;
 
+    [SerializeField]
+    public Text scoreText;
+    private int m_Score;
+
+
     // Start is called before the first frame update
     void Start()
     {
         score = 0;
+        UpdateScore();
         hearts = 0;
     }
 
@@ -26,6 +33,7 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+        UpdateScore();
     }
     void GameOver()
     {
@@ -39,4 +47,6 @@ public class GameManager : MonoBehaviour
             print("WINNER WINNER CHICKEN DINNER oh wait MY CHIKCEN");
         }
     }
+
+    public void UpdateScore() => scoreText.text = score.ToString();
 }
