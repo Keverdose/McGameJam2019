@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
-{
-    public AudioSource punchSound;
-
+public class EnemyScript : MonoBehaviour {
     public bool foxHunting;
     public Vector2 foxMapSize = new Vector2(2.0f, 1.0f);
     public Vector3 foxTargetLoc;
@@ -15,6 +12,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject foxTarget;
     public AudioSource foxSound;
     public bool foxSoundHasPlayed;
+    public bool chickenSaved;
 
     public float chupacabraMapSize = 2.0f;
     public float chupacabraSpeed = 2.0f;
@@ -42,19 +40,17 @@ public class EnemyScript : MonoBehaviour
     public GameObject ufoZone;
     public bool playerColliding;
     // Start is called before the first frame update
-    void Start()
-    {
-        if(gameObject.CompareTag("fox"))
-        {
+    void Start() {
+        if (gameObject.CompareTag("fox")) {
             foxSoundHasPlayed = false;
             foxHuntingTimer = 0.0f;
             foxHunting = false;
+            chickenSaved = false;
             transform.position = new Vector3(foxMapSize.x, foxMapSize.y, 0.0f);
             foxTargetLoc = new Vector2(foxMapSize.x, -foxMapSize.y);
         }
-        
-        else if (gameObject.CompareTag("chupacabra"))
-        {
+
+        else if (gameObject.CompareTag("chupacabra")) {
             chupacabraSoundHasPlayed = false;
             chupacabraHasRespawned = true;
             chupacabraHunting = false;
@@ -62,9 +58,8 @@ public class EnemyScript : MonoBehaviour
             chupacabraOriginalLocation = transform.position;
             chupacabraRespawn();
         }
-        
-        else if (gameObject.CompareTag("ufo"))
-        {
+
+        else if (gameObject.CompareTag("ufo")) {
             ufoSoundHasPlayed = false;
             ufoHunting = false;
             ufoTimer = 0.0f;
@@ -73,14 +68,12 @@ public class EnemyScript : MonoBehaviour
             ufoTargetLocation = ufoTarget.transform.position;
             ufoTargetLocation.y += ufoHeight;
         }
-        
+
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        switch(tag)
-        {
+    void Update() {
+        switch (tag) {
             case "ufo":
                 ufoDo();
                 break;
@@ -91,61 +84,49 @@ public class EnemyScript : MonoBehaviour
                 chupacabraDo();
                 break;
             default:
-                foxDo();
                 break;
         }
 
 
-        
+
     }
 
-    public void ufoDo()
-    {
-        if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+    public void ufoDo() {
+        if (!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
             ufoTimer += Time.deltaTime;
         }
-        
-        if (ufoTimer >= ufoTime && !(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+
+        if (ufoTimer >= ufoTime && !(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
             ufoHunting = true;
         }
-        if (ufoHunting)
-        {
-            if (!ufoSoundHasPlayed)
-            {
+        if (ufoHunting) {
+            if (!ufoSoundHasPlayed) {
                 ufoSound.Play();
                 ufoSoundHasPlayed = true;
             }
 
             transform.position = Vector2.MoveTowards(transform.position, ufoTargetLocation, ufoSpeed * Time.deltaTime);
-            if (transform.position == ufoTargetLocation)
-            {
-                
+            if (transform.position == ufoTargetLocation) {
 
-                if (Input.GetKey("space") && ufoZone.GetComponent<ufoZoneScript>().canSave)
-                {
+
+                if (Input.GetKey("space") && ufoZone.GetComponent<ufoZoneScript>().canSave) {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, ufoOriginalTargetLocation, 0.1f * Time.deltaTime);
                 }
-                else
-                {
+                else {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, transform.position, 0.1f * Time.deltaTime);
-                    if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
-                    {
+                    if (!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp)) {
                         ufoTarget.GetComponent<Animal>().attacked();
                     }
-                    
+
                 }
-                if (ufoTarget.transform.position == ufoOriginalTargetLocation)
-                {
+                if (ufoTarget.transform.position == ufoOriginalTargetLocation) {
                     ufoTimer = 0.0f;
                     ufoHunting = false;
                     ufoSoundHasPlayed = false;
                     ufoTarget.GetComponent<Animal>().animalSaved();
 
                 }
-                if(ufoTarget.transform.position == transform.position)
-                {
+                if (ufoTarget.transform.position == transform.position) {
                     ufoTarget.GetComponent<Animal>().originalPosition.position = ufoOriginalTargetLocation;
                     ufoTarget.GetComponent<Animal>().animalDied();
                     ufoTimer = 0.0f;
@@ -154,8 +135,7 @@ public class EnemyScript : MonoBehaviour
                 }
             }
         }
-        else
-        {
+        else {
             print("DONE");
 
             transform.position = Vector2.MoveTowards(transform.position, ufoOriginalLocation, ufoSpeed * Time.deltaTime);
@@ -164,40 +144,32 @@ public class EnemyScript : MonoBehaviour
 
 
 
-    void chupacabraDo()
-    {
-        if(!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+    void chupacabraDo() {
+        if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
             chupacabraHuntingTimer += Time.deltaTime;
         }
-        
-        if (chupacabraHuntingTimer >= chupacabraHuntingTime && !(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+
+        if (chupacabraHuntingTimer >= chupacabraHuntingTime && !(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
             chupacabraHunting = true;
-            if (!chupacabraSoundHasPlayed)
-            {
+            if (!chupacabraSoundHasPlayed) {
                 chupacabraSound.Play();
                 chupacabraSoundHasPlayed = true;
             }
         }
-        if(chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f))
-        {
+        if (chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f)) {
 
-            if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
-            {
+            if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp)) {
                 chupacabraTarget.GetComponent<Animal>().attacked();
             };
         }
 
-        if (chupacabraHunting)
-        {
+        if (chupacabraHunting) {
             transform.position = Vector2.MoveTowards(transform.position, chupacabraTarget.transform.position, chupacabraSpeed * Time.deltaTime);
 
             // Disable the BoxCollider
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-            if (transform.position == chupacabraTarget.transform.position)
-            {
+            if (transform.position == chupacabraTarget.transform.position) {
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
@@ -218,34 +190,27 @@ public class EnemyScript : MonoBehaviour
                 this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
         }
-        else
-        {
+        else {
             transform.position = Vector2.MoveTowards(transform.position, chupacabraOriginalLocation, chupacabraSpeed * Time.deltaTime);
-            if (!chupacabraHasRespawned && chupacabraOriginalLocation == transform.position)
-            {
+            if (!chupacabraHasRespawned && chupacabraOriginalLocation == transform.position) {
                 chupacabraRespawn();
             }
         }
     }
-    public void chupacabraRespawn()
-    {
+    public void chupacabraRespawn() {
         int pos = Mathf.RoundToInt(Random.Range(1.0f, 4.0f));
         print(pos);
         Vector3 newLoc = new Vector3(chupacabraMapSize, chupacabraMapSize, 0.0f);
-        if (pos == 1)
-        {
+        if (pos == 1) {
             newLoc = new Vector3(chupacabraMapSize, Random.Range(-chupacabraMapSize, chupacabraMapSize), 0.0f);
         }
-        else if (pos == 2)
-        {
+        else if (pos == 2) {
             newLoc = new Vector3(Random.Range(-chupacabraMapSize, chupacabraMapSize), chupacabraMapSize, 0.0f);
         }
-        else if (pos == 3)
-        {
+        else if (pos == 3) {
             newLoc = new Vector3(-chupacabraMapSize, Random.Range(-chupacabraMapSize, chupacabraMapSize), 0.0f);
         }
-        else if (pos == 4)
-        {
+        else if (pos == 4) {
             newLoc = new Vector3(Random.Range(-chupacabraMapSize, chupacabraMapSize), -chupacabraMapSize, 0.0f);
         }
         transform.position = newLoc;
@@ -254,19 +219,36 @@ public class EnemyScript : MonoBehaviour
         chupacabraHasRespawned = true;
     }
 
-    void foxDo()
-    {
-        if(!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+    void foxDo() {
+        // Increase Time Until Hunt
+        if (!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
             foxHuntingTimer += Time.deltaTime;
         }
-        
-        if (foxHuntingTimer >= foxHuntingTime && !(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
-        {
+
+        if (chickenSaved) {
+
+            foxHuntingTimer = 0.0f;
+
+            // CHICKENHAS BEEN SAVED
+            foxTarget.GetComponent<Animal>().animalSaved();
+
+            // Disable the BoxCollider
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            chickenSaved = false;
+            foxHunting = false;
+
+
+        }
+
+        // Switch to Hunting Mode when timer is up
+        if (foxHuntingTimer >= foxHuntingTime && !foxHunting && (foxTarget.GetComponent<Animal>().state != Animal.AnimalStates.respawning) && (foxTarget.GetComponent<Animal>().state != Animal.AnimalStates.needHelp)) {
             foxHunting = true;
+
+            print("HERE");
             foxTarget.GetComponent<Animal>().attacked();
-            if (!foxSoundHasPlayed)
-            {
+
+            if (!foxSoundHasPlayed) {
                 foxSound.Play();
                 foxSoundHasPlayed = true;
             }
@@ -281,38 +263,35 @@ public class EnemyScript : MonoBehaviour
             };
         }*/
 
-        if (!foxHunting)
-        {
+
+        // IF it is not hunting, ROAM
+        if (!foxHunting) {
             transform.position = Vector2.MoveTowards(transform.position, foxTargetLoc, foxSpeed * Time.deltaTime);
-            if (transform.position == foxTargetLoc)
-            {
-                if (foxTargetLoc == new Vector3(foxMapSize.x, -foxMapSize.y))
-                {
+            if (transform.position == foxTargetLoc) {
+                if (foxTargetLoc == new Vector3(foxMapSize.x, -foxMapSize.y)) {
                     foxTargetLoc = new Vector3(-foxMapSize.x, -foxMapSize.y);
                 }
-                else if (foxTargetLoc == new Vector3(-foxMapSize.x, -foxMapSize.y))
-                {
+                else if (foxTargetLoc == new Vector3(-foxMapSize.x, -foxMapSize.y)) {
                     foxTargetLoc = new Vector3(-foxMapSize.x, foxMapSize.y);
                 }
-                else if (foxTargetLoc == new Vector3(-foxMapSize.x, foxMapSize.y))
-                {
+                else if (foxTargetLoc == new Vector3(-foxMapSize.x, foxMapSize.y)) {
                     foxTargetLoc = new Vector3(foxMapSize.x, foxMapSize.y);
                 }
-                else if (foxTargetLoc == new Vector3(foxMapSize.x, foxMapSize.y))
-                {
+                else if (foxTargetLoc == new Vector3(foxMapSize.x, foxMapSize.y)) {
                     foxTargetLoc = new Vector3(foxMapSize.x, -foxMapSize.y);
                 }
 
             }
 
         }
-        else
-        {
+
+        // HUNTING MODE
+        else {
+            // Enable the BoxCollider
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
             transform.position = Vector2.MoveTowards(transform.position, foxTarget.transform.position, foxSpeed * Time.deltaTime);
-            if (transform.position == foxTarget.transform.position)
-            {
-                // Disable the BoxCollider
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            if (transform.position == foxTarget.transform.position) {
 
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
@@ -322,45 +301,37 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("O NOO CHICKEN GOT ATTACKED!!!!!");
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
                 foxTarget.GetComponent<Animal>().animalDied();
+
+                // Disable the BoxCollider
+                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
             }
 
-            else {
-                // CHICKENHAS BEEN SAVED
-                foxTarget.GetComponent<Animal>().animalSaved();
-
-                // Enable the BoxCollider
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(this.gameObject.CompareTag("chupacabra"))
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (this.gameObject.CompareTag("chupacabra")) {
+            if (collision.gameObject.CompareTag("Player")) {
                 Debug.LogWarning("UwU YUU SAVED GOAT!!");
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
                 chupacabraSoundHasPlayed = false;
-                punchSound.Play();
                 // chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
-        if(this.gameObject.CompareTag("fox"))
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
+        if (this.gameObject.CompareTag("fox")) {
+            if (collision.gameObject.CompareTag("Player")) {
                 Debug.LogWarning("UwU YUU SAVED CHICKEN!!");
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
+                chickenSaved = true;
                 foxSoundHasPlayed = false;
-                punchSound.Play();
+
             }
         }
-        
+
     }
 }
 
