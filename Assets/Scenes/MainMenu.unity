@@ -191,7 +191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2035004972}
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -890,8 +890,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'When coming home from school on a friday afternoon, boy and girl heard
-    of an urban legend that tells the tale of mysterious entities that ravages farms.
-    Scared for their friends. They rush home to take care of the animals.
+    of an urban legend that tells the tale of mysterious entities that ravage farms.
+    Scared for their friends. They rush home to check whether they were okay.
 
 '
 --- !u!222 &541849281
@@ -1084,7 +1084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &803773092
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2164,8 +2164,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Little do they know that they will soon find themselves face to face with
-    these so called mysterious entities. \n"
+  m_Text: "Little did they know that they would soon find themselves face to face
+    with these so called mysterious entities. \n"
 --- !u!222 &1227763873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2699,8 +2699,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1171416770}
   theButton: {fileID: 36720057}
-  TitleScreen: {fileID: 405520774}
-  StorySreen: {fileID: 1961201053}
+  TitleScreen: {fileID: 815687703}
+  NextScreen: {fileID: 1961201053}
+  StoryScreen: {fileID: 803773091}
   TutorialScreen: {fileID: 1967553026}
 --- !u!1 &2056041667
 GameObject:
