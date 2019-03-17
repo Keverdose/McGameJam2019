@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public static float score;
     public static float timeLeft = 10;
     public int pointsToWin = 30;
+    public int secretWin = 45;
     public static int hearts;
 
     [SerializeField]
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         pointsToWin = 30;
         hearts = 0;
+        secretWin = 45;
         timeLeft = 180; // Changes to three minutes
     }
 
@@ -42,11 +44,15 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         scoreText.gameObject.SetActive(false);
-        if(score < pointsToWin)
+        if (score < pointsToWin)
         {
             StartCoroutine(LosingRoutine());
         }
-        else if(score > pointsToWin)
+        else if (score > secretWin)
+        {
+            StartCoroutine(SecretWinRoutine());
+        }
+        else if (score > pointsToWin)
         {
             StartCoroutine(WinningRoutine());
         }
@@ -64,6 +70,13 @@ public class GameManager : MonoBehaviour
         winningScreen.SetActive(true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadSceneAsync(0);
+    }
+
+    IEnumerator SecretWinRoutine()
+    {
+        winningScreen.SetActive(true);
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 

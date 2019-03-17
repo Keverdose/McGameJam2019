@@ -121,7 +121,8 @@ AudioSource:
   m_GameObject: {fileID: 8749957538123004742}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3a1860c38f689423ba4b6c5b22fae2cd,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: caf71fc8c7dbf4246a4cd16b1b0b9415, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -244,6 +245,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8749957538123004736}
     m_Modifications:
+    - target: {fileID: 7534111260064779583, guid: efb06a4e59b1044c2bc814bb82272527,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534111260064779583, guid: efb06a4e59b1044c2bc814bb82272527,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7534111260064779580, guid: efb06a4e59b1044c2bc814bb82272527,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -297,16 +308,6 @@ PrefabInstance:
     - target: {fileID: 7534111260064779580, guid: efb06a4e59b1044c2bc814bb82272527,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534111260064779583, guid: efb06a4e59b1044c2bc814bb82272527,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7534111260064779583, guid: efb06a4e59b1044c2bc814bb82272527,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -416,6 +417,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8749957538123004736}
     m_Modifications:
+    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
+        type: 3}
+      propertyPath: m_Name
+      value: EggHarvest
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7828755858050540706, guid: c6116cd1ebacc4c599d778568c72a538,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -469,16 +480,6 @@ PrefabInstance:
     - target: {fileID: 7828755858050540706, guid: c6116cd1ebacc4c599d778568c72a538,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
-        type: 3}
-      propertyPath: m_Name
-      value: EggHarvest
-      objectReference: {fileID: 0}
-    - target: {fileID: 7828755858050540709, guid: c6116cd1ebacc4c599d778568c72a538,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
