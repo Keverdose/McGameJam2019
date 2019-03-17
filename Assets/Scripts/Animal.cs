@@ -165,6 +165,11 @@ public class Animal : MonoBehaviour
         animalStateSprites[(int)state].SetActive(true);
     }
 
+    public void animalSaved() {
+        state = pastAnimalState;
+        pastAnimalState = AnimalStates.neutral;
+    }
+
 
     // Animal has died and set into a respawning state
     public void animalDied() {
@@ -186,6 +191,13 @@ public class Animal : MonoBehaviour
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
         enableChildObjects();
+
+        state = AnimalStates.neutral;
+        pastAnimalState = AnimalStates.neutral;
+
+        hungryTimer = 0;
+        thirstyTimer = 0;
+        harvestTimer = 0;
     }
 
     private void disableChildObjects() {
