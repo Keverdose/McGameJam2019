@@ -803,7 +803,6 @@ MonoBehaviour:
   harvest: 000000000100000002000000
   basket: {fileID: 674261704}
   score: 0
-  timeLeft: 0
 --- !u!4 &1473508934
 Transform:
   m_ObjectHideFlags: 0
@@ -1019,7 +1018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 691621484, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
       propertyPath: m_CollisionDetection
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 691621484, guid: 66fb1d2f08af94e08963bd6769835ce4, type: 3}
       propertyPath: m_BodyType
