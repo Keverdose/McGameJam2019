@@ -34,6 +34,8 @@ public class Animal : MonoBehaviour
     public Transform originalPosition;
     private int activeSpriteIdex;
 
+    public AudioSource animalSound;
+
 
     // Start Function
     void Start() {
@@ -90,6 +92,7 @@ public class Animal : MonoBehaviour
 
         if (state == AnimalStates.neutral && harvestTimer >= maxHarvestTimer) {
             changeState(AnimalStates.readyToHarvest);
+            animalSound.Play();
         }
 
         if (state == AnimalStates.respawning && respawnTimer >= maxRespawnTimer) {
