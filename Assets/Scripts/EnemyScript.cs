@@ -112,7 +112,7 @@ public class EnemyScript : MonoBehaviour {
             if (transform.position == ufoTargetLocation) {
 
 
-                if (Input.GetKey("space") && ufoZone.GetComponent<ufoZoneScript>().canSave) {
+                if ((Input.GetKey("space") || Input.GetButton("AButton")) && ufoZone.GetComponent<ufoZoneScript>().canSave) {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, ufoOriginalTargetLocation, 0.1f * Time.deltaTime);
                 }
                 else {

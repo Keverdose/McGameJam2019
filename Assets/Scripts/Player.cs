@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public void OnTriggerStay2D(Collider2D other) {
      
         // Player Action Key is Pressed        
-        if(Input.GetKeyDown("space")) {
+        if(Input.GetKeyDown("space") || Input.GetButtonDown("AButton")) {
 
             // Animal Interaction (Cow, Goat, Chicken)
             if (other.gameObject.tag == "Cow" || other.gameObject.tag == "Goat" || other.gameObject.tag == "Chicken") {
