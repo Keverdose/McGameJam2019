@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8561284682513444315}
   - component: {fileID: 1566141843}
   m_Layer: 0
-  m_Name: Enemy_UFO
+  m_Name: Easter Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,8 @@ AudioSource:
   m_GameObject: {fileID: 8561284682513444314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3a1860c38f689423ba4b6c5b22fae2cd,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e95ecbe2a48e73e449c63c85f4c37619, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
