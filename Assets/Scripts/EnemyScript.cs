@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     public bool chupacabraHasRespawned;
     public AudioSource chupacabraSound;
     public bool chupacabraSoundHasPlayed;
+    public bool chupacabraHuntingFailed = false;
 
     public bool ufoHunting;
     public GameObject ufoTarget;
@@ -36,6 +37,8 @@ public class EnemyScript : MonoBehaviour
     public float ufoTimer;
     public AudioSource ufoSound;
     public bool ufoSoundHasPlayed;
+    public GameObject ufoZone;
+    public bool playerColliding;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,8 +99,12 @@ public class EnemyScript : MonoBehaviour
 
     public void ufoDo()
     {
-        ufoTimer += Time.deltaTime;
-        if (ufoTimer >= ufoTime)
+        if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            ufoTimer += Time.deltaTime;
+        }
+        
+        if (ufoTimer >= ufoTime && !(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             ufoHunting = true;
         }
@@ -112,17 +119,33 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, ufoTargetLocation, ufoSpeed * Time.deltaTime);
             if (transform.position == ufoTargetLocation)
             {
+                
 
-                if (Input.GetKey("space"))
+                if (Input.GetKey("space") && ufoZone.GetComponent<ufoZoneScript>().canSave)
                 {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, ufoOriginalTargetLocation, 0.1f * Time.deltaTime);
                 }
                 else
                 {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, transform.position, 0.1f * Time.deltaTime);
+                    if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+                    {
+                        ufoTarget.GetComponent<Animal>().attacked();
+                    }
+                    
                 }
                 if (ufoTarget.transform.position == ufoOriginalTargetLocation)
                 {
+                    ufoTimer = 0.0f;
+                    ufoHunting = false;
+                    ufoSoundHasPlayed = false;
+                    ufoTarget.GetComponent<Animal>().animalSaved();
+
+                }
+                if(ufoTarget.transform.position == transform.position)
+                {
+                    ufoTarget.GetComponent<Animal>().originalPosition.position = ufoOriginalTargetLocation;
+                    ufoTarget.GetComponent<Animal>().animalDied();
                     ufoTimer = 0.0f;
                     ufoHunting = false;
                     ufoSoundHasPlayed = false;
@@ -137,10 +160,16 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+
+
     void chupacabraDo()
     {
-        chupacabraHuntingTimer += Time.deltaTime;
-        if (chupacabraHuntingTimer >= chupacabraHuntingTime)
+        if(!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            chupacabraHuntingTimer += Time.deltaTime;
+        }
+        
+        if (chupacabraHuntingTimer >= chupacabraHuntingTime && !(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             chupacabraHunting = true;
             if (!chupacabraSoundHasPlayed)
@@ -148,6 +177,14 @@ public class EnemyScript : MonoBehaviour
                 chupacabraSound.Play();
                 chupacabraSoundHasPlayed = true;
             }
+        }
+        if(chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f))
+        {
+
+            if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+            {
+                chupacabraTarget.GetComponent<Animal>().attacked();
+            };
         }
 
         if (chupacabraHunting)
@@ -160,8 +197,16 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHasRespawned = false;
                 chupacabraSoundHasPlayed = false;
                 Debug.LogWarning("O NOO GOAT GOT ATTACKED!!!!!");
+
+
+                chupacabraTarget.GetComponent<Animal>().animalDied();
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
 
+            }
+
+            else {
+                // SAVED GOAT 
+                chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
         else
@@ -202,10 +247,15 @@ public class EnemyScript : MonoBehaviour
 
     void foxDo()
     {
-        foxHuntingTimer += Time.deltaTime;
-        if (foxHuntingTimer >= foxHuntingTime)
+        if(!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            foxHuntingTimer += Time.deltaTime;
+        }
+        
+        if (foxHuntingTimer >= foxHuntingTime && !(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             foxHunting = true;
+            foxTarget.GetComponent<Animal>().attacked();
             if (!foxSoundHasPlayed)
             {
                 foxSound.Play();
@@ -213,6 +263,14 @@ public class EnemyScript : MonoBehaviour
             }
 
         }
+        /*if (foxHuntingTimer >= (foxHuntingTime - 5.0f))
+        {
+
+            if (!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+            {
+                foxTarget.GetComponent<Animal>().attacked();
+            };
+        }*/
 
         if (!foxHunting)
         {
@@ -251,6 +309,12 @@ public class EnemyScript : MonoBehaviour
                 //soundHasPlayed = false;
                 Debug.LogWarning("O NOO CHICKEN GOT ATTACKED!!!!!");
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
+                foxTarget.GetComponent<Animal>().animalDied();
+            }
+
+            else {
+                // CHICKENHAS BEEN SAVED
+                foxTarget.GetComponent<Animal>().animalSaved();
             }
         }
     }
@@ -265,6 +329,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
+                // chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
         if(this.gameObject.CompareTag("fox"))
