@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         UpdateScore();
         pointsToWin = 30;
         hearts = 0;
-        timeLeft = 30;
+        timeLeft = 180; // Changes to three minutes
     }
 
     void Update()

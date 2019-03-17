@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,6 +253,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196874506, guid: 0790ea734d3de4e2cb260700c3e6fa89, type: 3}
+      propertyPath: maxThirstyTimer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196874506, guid: 0790ea734d3de4e2cb260700c3e6fa89, type: 3}
+      propertyPath: maxHarvestTimer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1196874506, guid: 0790ea734d3de4e2cb260700c3e6fa89, type: 3}
+      propertyPath: maxRespawnTimer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0790ea734d3de4e2cb260700c3e6fa89, type: 3}
@@ -507,7 +519,7 @@ PrefabInstance:
     - target: {fileID: 7599167558456702370, guid: 7aba7dabb76844ae395211c6e531891a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7599167558456702383, guid: 7aba7dabb76844ae395211c6e531891a,
         type: 3}
@@ -568,6 +580,10 @@ PrefabInstance:
       propertyPath: foxTarget
       value: 
       objectReference: {fileID: 178702486}
+    - target: {fileID: 532976926, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
+      propertyPath: foxHuntingTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aba7dabb76844ae395211c6e531891a, type: 3}
 --- !u!1 &630393291
@@ -716,6 +732,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 178702487, guid: eb78829f525124cfb8365bc79ac22a0e, type: 3}
+      propertyPath: maxThirstyTimer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 178702487, guid: eb78829f525124cfb8365bc79ac22a0e, type: 3}
+      propertyPath: maxRespawnTimer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb78829f525124cfb8365bc79ac22a0e, type: 3}
 --- !u!1001 &756893910
@@ -793,6 +817,10 @@ PrefabInstance:
       propertyPath: ufoZone
       value: 
       objectReference: {fileID: 958256094}
+    - target: {fileID: 1319238465, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
+      propertyPath: ufoTime
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d625181385440fa9b0b47ba71c1446, type: 3}
 --- !u!1 &958256094
@@ -1222,6 +1250,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1210178895, guid: 61a181c97d99742d996806f0d9d530ce, type: 3}
+      propertyPath: maxHungryTimer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1210178895, guid: 61a181c97d99742d996806f0d9d530ce, type: 3}
+      propertyPath: maxRespawnTimer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61a181c97d99742d996806f0d9d530ce, type: 3}
 --- !u!1001 &1516311656
@@ -1295,6 +1331,10 @@ PrefabInstance:
       propertyPath: chupacabraTarget
       value: 
       objectReference: {fileID: 1210178894}
+    - target: {fileID: 608709748, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
+      propertyPath: chupacabraHuntingTime
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e3e0e3c10cf47118bc2f131d2d2fad, type: 3}
 --- !u!1 &1554673194
