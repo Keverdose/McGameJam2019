@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject foxTarget;
     public AudioSource foxSound;
     public bool foxSoundHasPlayed;
+    public bool chickenSaved;
 
     public float chupacabraMapSize = 2.0f;
     public float chupacabraSpeed = 2.0f;
@@ -47,6 +48,7 @@ public class EnemyScript : MonoBehaviour
             foxSoundHasPlayed = false;
             foxHuntingTimer = 0.0f;
             foxHunting = false;
+            chickenSaved = false;
             transform.position = new Vector3(foxMapSize.x, foxMapSize.y, 0.0f);
             foxTargetLoc = new Vector2(foxMapSize.x, -foxMapSize.y);
         }
@@ -89,7 +91,6 @@ public class EnemyScript : MonoBehaviour
                 chupacabraDo();
                 break;
             default:
-                foxDo();
                 break;
         }
 
@@ -254,15 +255,36 @@ public class EnemyScript : MonoBehaviour
 
     void foxDo()
     {
+        // Increase Time Until Hunt
         if(!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             foxHuntingTimer += Time.deltaTime;
         }
-        
-        if (foxHuntingTimer >= foxHuntingTime && !(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+
+        if (chickenSaved) {
+
+            foxHuntingTimer = 0.0f;
+
+            // CHICKENHAS BEEN SAVED
+            foxTarget.GetComponent<Animal>().animalSaved();
+
+            // Disable the BoxCollider
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            chickenSaved = false;
+            foxHunting = false;
+
+
+        }
+
+        // Switch to Hunting Mode when timer is up
+        if (foxHuntingTimer >= foxHuntingTime && !foxHunting && (foxTarget.GetComponent<Animal>().state != Animal.AnimalStates.respawning) && (foxTarget.GetComponent<Animal>().state != Animal.AnimalStates.needHelp))
         {
             foxHunting = true;
+
+            print("HERE");
             foxTarget.GetComponent<Animal>().attacked();
+
             if (!foxSoundHasPlayed)
             {
                 foxSound.Play();
@@ -279,6 +301,8 @@ public class EnemyScript : MonoBehaviour
             };
         }*/
 
+
+        // IF it is not hunting, ROAM
         if (!foxHunting)
         {
             transform.position = Vector2.MoveTowards(transform.position, foxTargetLoc, foxSpeed * Time.deltaTime);
@@ -304,13 +328,16 @@ public class EnemyScript : MonoBehaviour
             }
 
         }
+
+        // HUNTING MODE
         else
         {
+            // Enable the BoxCollider
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
             transform.position = Vector2.MoveTowards(transform.position, foxTarget.transform.position, foxSpeed * Time.deltaTime);
             if (transform.position == foxTarget.transform.position)
             {
-                // Disable the BoxCollider
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
@@ -320,15 +347,12 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("O NOO CHICKEN GOT ATTACKED!!!!!");
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
                 foxTarget.GetComponent<Animal>().animalDied();
+
+                // Disable the BoxCollider
+                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
             }
 
-            else {
-                // CHICKENHAS BEEN SAVED
-                foxTarget.GetComponent<Animal>().animalSaved();
-
-                // Enable the BoxCollider
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            }
         }
     }
 
@@ -353,6 +377,7 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("UwU YUU SAVED CHICKEN!!");
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
+                chickenSaved = true;
                 foxSoundHasPlayed = false;
 
             }

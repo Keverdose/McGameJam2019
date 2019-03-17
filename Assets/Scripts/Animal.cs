@@ -161,7 +161,7 @@ public class Animal : MonoBehaviour
     // Animal being Attacked Fucntion (To be called Externally when events happen)
     public void attacked() {
         pastAnimalState = state;
-        state = AnimalStates.needHelp;
+        state = AnimalStates.needHelp;  
         disableStateSprite();
         animalStateSprites[(int)state].SetActive(true);
 
