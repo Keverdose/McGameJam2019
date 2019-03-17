@@ -163,8 +163,12 @@ public class EnemyScript : MonoBehaviour
 
     void chupacabraDo()
     {
-        chupacabraHuntingTimer += Time.deltaTime;
-        if (chupacabraHuntingTimer >= chupacabraHuntingTime)
+        if(!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            chupacabraHuntingTimer += Time.deltaTime;
+        }
+        
+        if (chupacabraHuntingTimer >= chupacabraHuntingTime && !(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             chupacabraHunting = true;
             if (!chupacabraSoundHasPlayed)
@@ -237,8 +241,12 @@ public class EnemyScript : MonoBehaviour
 
     void foxDo()
     {
-        foxHuntingTimer += Time.deltaTime;
-        if (foxHuntingTimer >= foxHuntingTime)
+        if(!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
+        {
+            foxHuntingTimer += Time.deltaTime;
+        }
+        
+        if (foxHuntingTimer >= foxHuntingTime && !(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning))
         {
             foxHunting = true;
             if (!foxSoundHasPlayed)
@@ -247,6 +255,14 @@ public class EnemyScript : MonoBehaviour
                 foxSoundHasPlayed = true;
             }
 
+        }
+        if (foxHuntingTimer >= (foxHuntingTime - 5.0f))
+        {
+
+            if (!(foxTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+            {
+                foxTarget.GetComponent<Animal>().attacked();
+            };
         }
 
         if (!foxHunting)
@@ -286,6 +302,7 @@ public class EnemyScript : MonoBehaviour
                 //soundHasPlayed = false;
                 Debug.LogWarning("O NOO CHICKEN GOT ATTACKED!!!!!");
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
+                foxTarget.GetComponent<Animal>().animalDied();
             }
         }
     }
@@ -310,7 +327,7 @@ public class EnemyScript : MonoBehaviour
                 Debug.LogWarning("UwU YUU SAVED CHICKEN!!");
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
-
+                foxTarget.GetComponent<Animal>().animalSaved();
             }
         }
         
