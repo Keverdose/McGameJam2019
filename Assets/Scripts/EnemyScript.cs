@@ -92,7 +92,7 @@ public class EnemyScript : MonoBehaviour {
     }
 
     public void ufoDo() {
-        if (!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning)) {
+        if (!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.respawning) && !ufoHunting) {
             ufoTimer += Time.deltaTime;
         }
 
