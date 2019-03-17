@@ -127,7 +127,11 @@ public class EnemyScript : MonoBehaviour
                 else
                 {
                     ufoTarget.transform.position = Vector2.MoveTowards(ufoTarget.transform.position, transform.position, 0.1f * Time.deltaTime);
-                    ufoTarget.GetComponent<Animal>().attacked();
+                    if(!(ufoTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp))
+                    {
+                        ufoTarget.GetComponent<Animal>().attacked();
+                    }
+                    
                 }
                 if (ufoTarget.transform.position == ufoOriginalTargetLocation)
                 {
