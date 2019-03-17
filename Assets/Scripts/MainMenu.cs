@@ -30,16 +30,17 @@ public class MainMenu : MonoBehaviour
     {
         NextScreen.SetActive(true);
         TitleScreen.SetActive(false);
-        index=1;
+        index = 1;
     }
 
 
     private void Update()
     {
-        if(index != 0)
+        if (index != 0)
         {
             if (index == 1) // story
             {
+                StartCoroutine(LoadTutorialRoutine());
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     TutorialScreen.SetActive(true);
@@ -52,7 +53,7 @@ public class MainMenu : MonoBehaviour
             }
             if (index == 2) // tutorial
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
                 {
                     Debug.Log(index + "Loading game...");
                     SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
@@ -60,5 +61,17 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator LoadTutorialRoutine()
+    {
+        yield return new WaitForSeconds(50);
+        if (index == 1)
+        {
+            TutorialScreen.SetActive(true);
+            StoryScreen.SetActive(false);
+            index = 2;
+        }
+
     }
 }
