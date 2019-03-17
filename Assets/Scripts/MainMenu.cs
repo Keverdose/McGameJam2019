@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(index);
+        //Debug.Log(index);
         if (index != 0)
         {
             if (index == 1) // story
@@ -55,7 +55,7 @@ public class MainMenu : MonoBehaviour
                 }
                 if (isReady && Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("AButton"))
                 {
-                    Debug.Log("Out of story" + index);
+                    //Debug.Log("Out of story" + index);
                     isReady = false;
                     index = 2;
                 }
@@ -65,7 +65,7 @@ public class MainMenu : MonoBehaviour
                 //StartCoroutine(LoadEnemiesRoutine());
                 if (Input.GetKeyDown(KeyCode.Escape) )//|| Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
                 {
-                    Debug.Log("Showing enemy screen" + index);
+                    //Debug.Log("Showing enemy screen" + index);
                     EnemyScreen.SetActive(true);
                     TutorialScreen.SetActive(false);
                     TitleString.SetActive(false);
@@ -73,7 +73,7 @@ public class MainMenu : MonoBehaviour
                 }
                 if(isReady && Input.GetKeyUp(KeyCode.Escape) )//|| Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("AButton"))
                 {
-                    Debug.Log("Out of Tutorial" + index);
+                    //Debug.Log("Out of Tutorial" + index);
                     isReady = false;
                     index = 3;
                 }
@@ -123,7 +123,7 @@ public class MainMenu : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        Debug.Log(volume);
+        //Debug.Log(volume);
         audioMixer.SetFloat("volume", volume);
     }
 }
