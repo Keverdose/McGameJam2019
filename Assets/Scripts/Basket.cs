@@ -54,9 +54,11 @@ public class Basket : MonoBehaviour
     {
         Player player = collision.gameObject.GetComponent<Player>();
         //Missing && player.itemIndex
-        if (Input.GetKeyDown(KeyCode.Space) && player != null)
+        if (Input.GetKeyDown(KeyCode.Space) && player != null && player.itemIndex == (int)nextHarvest)
         {
             GetNextHarvest();
+            player.deliverHarvest();
+
         }
     }
 
