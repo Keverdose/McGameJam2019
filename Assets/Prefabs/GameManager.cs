@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public Player[] players;
     public Harvest[] harvest;
     public GameObject basket;
+    public float score;
+    public float timeLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -19,32 +21,27 @@ public class GameManager : MonoBehaviour
         harvest[0] = Harvest.Milk;
         harvest[1] = Harvest.Egg;
         harvest[2] = Harvest.Cheese;
-
-        //Init players
-        //
+        score = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        
-    }
-
-
-
-    void printA()
-    {
-        foreach(Harvest h in harvest)
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
         {
-            print(h);
+            GameOver();
         }
     }
-
-
-    void spawnEnemy()
+    void GameOver()
     {
-        UnityEngine.Random.Range(0, enemies.Length);
-
+        if(score < 100)
+        {
+            //TODO: Change to losing scene.
+            print("U lost");
+        }else if(score > 100)
+        {
+            //TODO: Change to losing scene.
+            print("WINNER WINNER CHICKEN DINNER oh wait MY CHIKCEN");
+        }
     }
 }
