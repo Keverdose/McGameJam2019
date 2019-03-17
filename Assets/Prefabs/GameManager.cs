@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public Text scoreText;
+    public Text timeText;
     public GameObject losingScreen;
     public GameObject winningScreen;
     public GameObject secretScreen;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
         UpdateScore();
+        UpdateTime();
     }
     void GameOver()
     {
@@ -81,5 +83,7 @@ public class GameManager : MonoBehaviour
 
 
     public void UpdateScore() => scoreText.text = "Score: " + score.ToString();
+
+    public void UpdateTime() => timeText.text = "Time Remaining: " + timeLeft.ToString("F2");
 
 }
