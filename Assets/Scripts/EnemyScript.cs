@@ -155,22 +155,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("ufozone"))
-        {
-            playerColliding = true;
-            print("ITS INNNN!");
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("ufozone"))
-        {
-            playerColliding = false;
-            print("NONONONONO");
-        }
-    }*/
+
 
     void chupacabraDo()
     {
@@ -184,6 +169,10 @@ public class EnemyScript : MonoBehaviour
                 chupacabraSoundHasPlayed = true;
             }
         }
+        if(chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f))
+        {
+            chupacabraTarget.GetComponent<Animal>().attacked();
+        }
 
         if (chupacabraHunting)
         {
@@ -195,6 +184,9 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHasRespawned = false;
                 chupacabraSoundHasPlayed = false;
                 Debug.LogWarning("O NOO GOAT GOT ATTACKED!!!!!");
+
+
+                chupacabraTarget.GetComponent<Animal>().animalDied();
                 //BEHAVOUR WHEN GOAT ATTACKED HERE
 
             }
@@ -300,6 +292,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHuntingTimer = 0.0f;
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
+                chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
         if(this.gameObject.CompareTag("fox"))
