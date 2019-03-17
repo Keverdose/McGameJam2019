@@ -7,21 +7,16 @@ public enum Harvest{Milk, Egg, Cheese};
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject[] enemies;
-    public Player[] players;
-    public Harvest[] harvest;
-    public GameObject basket;
-    public float score;
-    public float timeLeft;
+    public static float score;
+    public static float timeLeft = 45;
+    public int pointsToWin = 30;
+    public static int hearts;
 
     // Start is called before the first frame update
     void Start()
     {
-        harvest = new Harvest[3];
-        harvest[0] = Harvest.Milk;
-        harvest[1] = Harvest.Egg;
-        harvest[2] = Harvest.Cheese;
         score = 0;
+        hearts = 0;
     }
 
     void Update()
@@ -34,11 +29,11 @@ public class GameManager : MonoBehaviour
     }
     void GameOver()
     {
-        if(score < 100)
+        if(score < pointsToWin)
         {
             //TODO: Change to losing scene.
-            print("U lost");
-        }else if(score > 100)
+            print("U lost, score: " + score);
+        }else if(score > pointsToWin)
         {
             //TODO: Change to losing scene.
             print("WINNER WINNER CHICKEN DINNER oh wait MY CHIKCEN");
