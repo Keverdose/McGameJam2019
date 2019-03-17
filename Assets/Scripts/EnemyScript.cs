@@ -51,6 +51,7 @@ public class EnemyScript : MonoBehaviour {
         }
 
         else if (gameObject.CompareTag("chupacabra")) {
+            this.GetComponent<SpriteRenderer>().enabled = false;
             chupacabraSoundHasPlayed = false;
             chupacabraHasRespawned = true;
             chupacabraHunting = false;
@@ -156,6 +157,14 @@ public class EnemyScript : MonoBehaviour {
                 chupacabraSoundHasPlayed = true;
             }
         }
+        if (chupacabraHuntingTimer >= (chupacabraHuntingTime - 1.0f))
+        {
+            this.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        /*else
+        {
+            this.GetComponent<SpriteRenderer>().enabled = false;
+        }*/
         if (chupacabraHuntingTimer >= (chupacabraHuntingTime - 5.0f)) {
 
             if (!(chupacabraTarget.GetComponent<Animal>().state == Animal.AnimalStates.needHelp)) {
@@ -193,6 +202,7 @@ public class EnemyScript : MonoBehaviour {
         else {
             transform.position = Vector2.MoveTowards(transform.position, chupacabraOriginalLocation, chupacabraSpeed * Time.deltaTime);
             if (!chupacabraHasRespawned && chupacabraOriginalLocation == transform.position) {
+                this.GetComponent<SpriteRenderer>().enabled = false;
                 chupacabraRespawn();
             }
         }
