@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public AudioSource punchSound;
+
     public bool foxHunting;
     public Vector2 foxMapSize = new Vector2(2.0f, 1.0f);
     public Vector3 foxTargetLoc;
@@ -343,6 +345,7 @@ public class EnemyScript : MonoBehaviour
                 chupacabraHunting = false;
                 chupacabraHasRespawned = false;
                 chupacabraSoundHasPlayed = false;
+                punchSound.Play();
                 // chupacabraTarget.GetComponent<Animal>().animalSaved();
             }
         }
@@ -354,7 +357,7 @@ public class EnemyScript : MonoBehaviour
                 foxHuntingTimer = 0.0f;
                 foxHunting = false;
                 foxSoundHasPlayed = false;
-
+                punchSound.Play();
             }
         }
         
