@@ -160,14 +160,22 @@ public class Animal : MonoBehaviour
 
     // Animal being Attacked Fucntion (To be called Externally when events happen)
     public void attacked() {
-        state = AnimalStates.needHelp;
         pastAnimalState = state;
+        state = AnimalStates.needHelp;
+        disableStateSprite();
         animalStateSprites[(int)state].SetActive(true);
+
+        print("ANIMAL ATTACKED");
     }
 
     public void animalSaved() {
+
+        print("ANIMAL SAVED");
+
         state = pastAnimalState;
         pastAnimalState = AnimalStates.neutral;
+        disableStateSprite();
+        animalStateSprites[(int)state].SetActive(true);
     }
 
 
@@ -177,11 +185,13 @@ public class Animal : MonoBehaviour
         changeState(AnimalStates.respawning);
         // Disable Animal Sprite Entirely 
         // Disable Animal GameObject Until Respawned
-
+        disableStateSprite();
         this.gameObject.transform.position = originalPosition.position;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
         disableChildObjects();
+
+        print("ANIMAL DIED");
 
     }
 
