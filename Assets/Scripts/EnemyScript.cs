@@ -134,7 +134,8 @@ public class EnemyScript : MonoBehaviour
                     ufoTimer = 0.0f;
                     ufoHunting = false;
                     ufoSoundHasPlayed = false;
-                    
+                    ufoTarget.GetComponent<Animal>().animalSaved();
+
                 }
                 if(ufoTarget.transform.position == transform.position)
                 {
