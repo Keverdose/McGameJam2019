@@ -42,6 +42,13 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        for (int i = 0; i < 20; i++)
+        {
+            if (Input.GetKeyDown("joystick 1 button " + i))
+            {
+                print("joystick 1 button " + i);
+            }
+        }
         Debug.Log(index);
         if (index != 0)
         {
@@ -53,7 +60,7 @@ public class MainMenu : MonoBehaviour
                     TutorialScreen.SetActive(true);
                     StoryScreen.SetActive(false);
                 }
-                if (isReady && Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("AButton"))
+                if (isReady && (Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("AButton")))
                 {
                     Debug.Log("Out of story" + index);
                     isReady = false;
@@ -63,7 +70,7 @@ public class MainMenu : MonoBehaviour
             if (index == 2) // tutorial
             {
                 //StartCoroutine(LoadEnemiesRoutine());
-                if (Input.GetKeyDown(KeyCode.Escape) )//|| Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
                 {
                     Debug.Log("Showing enemy screen" + index);
                     EnemyScreen.SetActive(true);
@@ -71,7 +78,7 @@ public class MainMenu : MonoBehaviour
                     TitleString.SetActive(false);
                     isReady = true;
                 }
-                if(isReady && Input.GetKeyUp(KeyCode.Escape) )//|| Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("AButton"))
+                if(isReady && (Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.Space) || Input.GetButtonUp("AButton")))
                 {
                     Debug.Log("Out of Tutorial" + index);
                     isReady = false;
@@ -80,11 +87,12 @@ public class MainMenu : MonoBehaviour
             }
             if(index == 3) // Enemies
             {
-                if (Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(LoadLevel());
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("AButton"))
                 {
                     isReady = true;
                 }
-                if (isReady && Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton"))
+                if (isReady && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("AButton")))
                 {
                     SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
                 }
@@ -114,6 +122,12 @@ public class MainMenu : MonoBehaviour
             index = 3;
             isReady = true;
         }
+    }
+
+    IEnumerator LoadLevel()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void DoQuit()
